@@ -195,3 +195,5 @@ p{margin:0 0 1em}
   .btn{display:block;margin:.5rem 0}
   .hero .btn{display:inline-block;margin:.3rem}
 }
+
+@media (max-width:480px){.brand-main{font-size:1.05rem;letter-spacing:.18em}.brand-sub{font-size:.52rem;letter-spacing:.28em}}
