@@ -7,8 +7,9 @@ import os, html
 
 OUT = os.path.dirname(os.path.abspath(__file__))
 
+import re
 def wix(media_id, w=1600, h=1067):
-    return f"https://static.wixstatic.com/media/{media_id}/v1/fill/w_{w},h_{h},al_c,q_85/{media_id}"
+    return "images/" + re.sub(r"_d_\d+_\d+_s_\d(_\d)?", "", media_id.replace("~mv2", ""))
 
 # ---------- shared data ----------
 SITE = "Marina Park"
