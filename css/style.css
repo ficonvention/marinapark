@@ -120,6 +120,7 @@ p{margin:0 0 1em}
 .g-item:hover img{transform:scale(1.05)}
 .g-item.portrait{grid-row:span 2}
 .g-item:nth-child(7n+1).landscape{grid-column:span 2}
+.gallery.even .g-item{grid-column:auto;grid-row:auto}
 
 /* prose */
 .prose{font-size:1.05rem}
@@ -207,3 +208,35 @@ p{margin:0 0 1em}
   .hero .btn{display:inline-block;margin:.3rem}
 }
 @media (max-width:480px){.brand-main{font-size:1.05rem;letter-spacing:.18em}.brand-sub{font-size:.52rem;letter-spacing:.28em}}
+
+/* ---- 2026-10 additions: facts, FAQ, footer social ---- */
+.facts{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts .wrap{max-width:980px}
+.facts h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+.facts-lead{color:var(--ink);max-width:820px;margin-bottom:1.6rem}
+.facts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem 2rem;margin:0 0 1.2rem}
+.facts-grid .fact{display:grid;grid-template-columns:7.5rem 1fr;gap:.6rem;padding:.55rem 0;border-bottom:1px dashed var(--line);margin:0}
+.facts-grid dt{font-family:var(--sans);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:500;padding-top:.15rem}
+.facts-grid dd{margin:0;font-size:.95rem}
+.facts-en{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:.95rem;border-left:2px solid var(--gold);padding-left:1rem;margin-top:1.4rem}
+.faq-section .wrap.narrow{max-width:860px}
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;list-style:none;padding:1rem 2.2rem 1rem 0;font-weight:500;font-size:1.02rem;position:relative}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:.2rem;top:.85rem;color:var(--gold);font-size:1.4rem;font-weight:300;transition:.2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-a{padding:0 0 1.1rem;color:var(--ink-soft)}
+.faq-a p{margin:0}
+.f-brand-ko{font-size:.7rem;letter-spacing:.3em;opacity:.7;margin-left:.6rem}
+.f-hours{font-size:.82rem;opacity:.75}
+.f-social-title{font-family:var(--sans);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7;margin-bottom:.6rem}
+.f-social{display:flex;flex-direction:column;gap:.55rem}
+.f-social a{display:flex;align-items:center;gap:.6rem;color:#cfd3d9;font-size:.85rem;letter-spacing:.06em}
+.f-social a:hover{color:#fff}
+.copyright a{opacity:.6}
+.page-hero .lead{color:#fff;opacity:.9;font-size:1.05rem;letter-spacing:.04em;margin-top:.4rem}
+@media (max-width:760px){
+  .facts-grid{grid-template-columns:1fr}
+  .facts-grid .fact{grid-template-columns:6rem 1fr}
+}
