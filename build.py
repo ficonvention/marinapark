@@ -522,7 +522,7 @@ about = f"""
       <div class="floor-text">
         <p class="eyebrow">1F</p><h2>Marina Cafe</h2>
         <p>마리나파크 1층은 한강이 보이는 카페입니다. 이국적인 분위기에서 커피와 티, 디저트, 피자와 파스타, 와인을 즐길 수 있으며, 카페 가든에서는 생일 모임·동호회·소규모 파티를 열 수 있습니다. 영업시간 {CAFE_HOURS}.</p>
-        <a class="btn" href="cafe.html">Cafe Menu</a>
+        <a class="btn" href="cafe.html">Cafe Menu</a> <a class="btn btn-outline-dark" href="https://marinapark.cafe" target="_blank" rel="noopener">카페 홈페이지</a>
       </div>
     </article>
     <article class="floor reverse">
@@ -844,98 +844,90 @@ cafe = f"""
   <div class="wrap">
     <p class="center sub">반포한강공원 서래나루, 한강이 보이는 1층 카페에서 커피와 티, 디저트, 피자와 파스타, 와인을 즐기실 수 있습니다. 영업시간 {CAFE_HOURS}. 가격 단위: 천 원 (예: 4.5 = 4,500원)</p>
     <div class="menu-grid">
-    {menu("Coffee", "Hot / Iced", [
-        ("에스프레소","Espresso","3.5"),
-        ("에스프레소 마끼아또","Espresso Macchiato","3.8"),
-        ("아메리카노","Americano","4.0 / 4.5"),
-        ("카푸치노","Cappuccino","4.5 / 5.0"),
-        ("카페라떼","Cafe Latte","4.5 / 5.0"),
-        ("바닐라 라떼","Vanilla Latte","5.0 / 5.5"),
-        ("카라멜 라떼","Caramel Latte","5.0 / 5.5"),
-        ("돌체라떼","Dolce Latte","5.0 / 5.5"),
-        ("카페모카","Cafe Mocha","5.0 / 5.5"),
-        ("카라멜 마끼아또","Caramel Macchiato","5.0 / 5.5"),
-        ("민트 모카","Mint Mocha","5.0 / 5.5"),
-        ("Dutch Coffee",),
-        ("콜드브루","Cold Brew","4.5 / 5.0"),
-        ("브루라떼","Brew Latte","5.0 / 5.5"),
-        ("에스프레소 샷 추가","Extra shot","+0.5"),
-    ])}
-    {menu("Tea", "Hot / Iced", [
-        ("얼그레이 / 다즐링 / 잉글리쉬 블랙퍼스트","Earl Grey / Darjeeling / English Breakfast","5.0"),
-        ("허브차 (페퍼민트 / 카모마일 / 레몬스카이 / 루이보스 바닐라 / 레드베리)","Herbal Tea","5.0"),
-        ("그린티","Green Tea","5.0"),
-        ("깔라만시 티","Kalamansi Tea","5.0"),
-        ("유자 티","Citron Tea","5.0"),
-        ("자몽 티","Grapefruit Tea","5.0"),
-        ("밀크 티","Milk Tea","5.5"),
-        ("그린티 라떼","Green Tea Latte","5.5"),
-    ])}
-    {menu("Beverage", "Hot / Iced", [
-        ("초콜릿","Hot Chocolate / Iced Chocolate","4.5 / 5.0"),
-        ("민트초코","Mint Choco","5.0 / 5.5"),
-        ("아이스 티 (레몬 / 복숭아)","Iced Tea (Lemon / Peach)","5.0"),
-        ("에이드 (레몬 / 자몽 / 청포도)","Ade (Lemon / Grapefruit / Green Grape)","5.0"),
-        ("이탈리안 소다 (라즈베리 / 블루베리 / 스트로베리 / 패션후르츠)","Italian Soda","5.0"),
-        ("Blended",),
-        ("스무디 (스트로베리 / 망고 / 믹스베리)","Smoothie","6.0"),
-        ("요거트 스무디 (플레인 / 스트로베리 / 망고 / 베리믹스)","Yogurt Smoothie","6.0"),
-        ("프라페 (리얼쿠키 / 그린티 / 자바칩 / 민트초코)","Frappe","7.0"),
-        ("Fruit",),
-        ("생과일 주스 (키위 / 키위바나나 / 토마토)","Fresh Juice","7.0"),
-    ])}
-    {menu("Bakery & Dessert", "", [
-        ("베이글 (플레인)","Bagel (Plain)","3.0"),
-        ("베이글 (블루베리 / 어니언 / 갈릭)","Bagel","4.0"),
-        ("베이글 (치즈) · 크림치즈 추가 +0.7","Bagel (Cheese)","5.0"),
-        ("스콘","Scone","4.0"),
-        ("크로크 무슈","Croque Monsieur","5.0"),
-        ("허니 버터 브레드","Honey Butter Bread","6.0"),
-        ("조각케이크 (바나나 플람베 / 블랙 포레스트 / 더블 치즈 스트로베리 / 이탈리아노 티라미수 / 뉴욕치즈)","Piece of Cake","6.0"),
-        ("Summer Dessert",),
-        ("오리지널 팥빙수","Original Red Bean Bingsu","8.0"),
-        ("망고빙수","Mango Bingsu","10.0"),
-    ])}
     {menu("Food", "", [
         ("Pizza",),
-        ("고르곤졸라","Gorgonzola Pizza","16.0"),
-        ("마르게리따","Margherita Pizza","16.0"),
-        ("페페로니","Pepperoni Pizza","16.0"),
-        ("베이컨 포테이토","Bacon Potato Pizza","16.0"),
-        ("Cutlet & Plates",),
-        ("등심돈까스","Sirloin Cutlet","14.0"),
-        ("치즈돈까스","Cheese Cutlet","15.0"),
-        ("찹스테이크","Chop Steak","29.0"),
-        ("볶음밥 (김치 / 새우)","Fried Rice (Kimchi / Shrimp)","14.0"),
-        ("감자튀김 + 새우춘권","French Fries + Shrimp Spring Rolls","8.0"),
-        ("버팔로 윙 & 칩스","Buffalo Wings & Chips","16.0"),
-        ("쉬림프 앤 칩스","Shrimp & Chips","16.0"),
-        ("연어샐러드","Salmon Salad","16.0"),
+        ("고르곤졸라 / 마르게리따 피자","Gorgonzola Cheese Pizza / Margherita Pizza","22.0"),
+        ("페퍼로니 / 쉬림프 피자","Pepperoni Pizza / Shrimp Pizza","24.0"),
+        ("Plates",),
+        ("돈까스 / 치즈돈까스","Pork Cutlet / Cheese Pork Cutlet","18.0 / 20.0"),
+        ("함박스테이크","Hamburg Steak","26.0"),
+        ("볶음밥 (김치 / 새우)","Fried Rice (Kimchi / Shrimp)","18.0"),
+        ("까르보나라 / 쉬림프 오일 파스타","Carbonara / Shrimp Oil Pasta","22.0"),
+        ("감자튀김 / 나초 & 멕시칸 살사","French Fries / Nachos & Salsa","10.0 / 12.0"),
+        ("버팔로윙 & 칩스 / 쉬림프 & 칩스","Wings & Chips / Shrimp & Chips","20.0"),
+        ("샐러드 (연어 / 치킨 / 부라타 치즈)","Salad (Salmon / Chicken / Burrata)","22.0"),
+        ("떡볶이 / 닭강정","Tteokbokki / Sweet & Sour Chicken","20.0"),
+        ("먹태 / 먹태 세트 (먹태 + 스텔라 2잔 330ml)","Pollack / Pollack Set","19.0 / 27.0"),
+        ("찹스테이크 / 바베큐 폭립","Chop Steak / BBQ Pork Ribs","32.0 / 30.0"),
+        ("Brunch Set (16:00까지)",),
+        ("브런치 + 커피 (호밀빵+버터 · 베이컨&소시지 · 계란후라이 · 샐러드)","Brunch + Coffee","20.0"),
     ])}
-    {menu("Drinks / Liquor", "Glass / Bottle", [
-        ("White Wine",),
-        ("깔리쟈 CVV","Caliza CVV","7.0 / 45.0"),
-        ("켄달-잭슨 빈트너스 리저브 샤도네이","Kendall-Jackson Vintner's Reserve Chardonnay","90.0"),
-        ("Red Wine",),
-        ("깔리쟈 MST","Caliza MST","7.0 / 45.0"),
-        ("토레스 마스 라 플라냐 카베르네 소비뇽 블랙 라벨","Torres Mas La Plana Cabernet Sauvignon","120.0"),
+    {menu("Coffee", "Hot / Iced", [
+        ("에스프레소","Espresso","4.0"),
+        ("에스프레소 콘파냐","Espresso Con Panna","4.5"),
+        ("아메리카노 (디카페인 +0.5)","Americano","5.0 / 5.5"),
+        ("원조 냉커피","Original Iced Coffee","6.0"),
+        ("카푸치노","Cappuccino","5.5 / 6.0"),
+        ("카페라떼","Cafe Latte","5.5 / 6.0"),
+        ("바닐라라떼","Vanilla Latte","6.0 / 6.5"),
+        ("카라멜라떼","Caramel Latte","6.0 / 6.5"),
+        ("돌체라떼","Dolce Latte","6.0 / 6.5"),
+        ("카라멜 마끼아또","Caramel Macchiato","6.0 / 6.5"),
+        ("카페모카 (생크림 +0.5)","Cafe Mocha","6.0 / 6.5"),
+        ("콜드브루","Cold Brew","5.5 / 6.0"),
+        ("브루라떼","Brew Latte","6.0 / 6.5"),
+        ("아포가토","Affogato","6.5"),
+    ])}
+    {menu("Tea", "Hot / Iced", [
+        ("얼그레이 / 히비스커스 / 페퍼민트 / 카모마일 / 레몬스카이 / 루이보스 바닐라 / 녹차","Earl Grey · Hibiscus · Peppermint · Chamomile · Lemon Sky · Rooibos Vanilla · Green Tea","5.5 / 6.0"),
+        ("유자차 / 자몽차 / 레몬차 (청)","Citron / Grapefruit / Lemon Tea","6.5 / 7.0"),
+        ("로얄 밀크티","Royal Milk Tea","6.5 / 7.0"),
+        ("말차라떼","Matcha Latte","6.5 / 7.0"),
+    ])}
+    {menu("Beverage", "Hot / Iced", [
+        ("핫초코","Hot Choco","5.5 / 6.0"),
+        ("민트초코라떼","Mint Chocolate Latte","6.0 / 6.5"),
+        ("고구마라떼","Sweet Potato Latte","6.5 / 7.0"),
+        ("딸기라떼","Strawberry Latte","7.0"),
+        ("아이스티 (레몬 / 복숭아)","Ice Tea (Lemon / Peach)","6.0"),
+        ("에이드 (레몬 / 자몽 / 청포도 / 체리)","Ade","6.5"),
+        ("오렌지주스","Orange Juice","5.0"),
+        ("생토마토주스","Fresh Tomato Juice","7.0"),
+        ("스무디 (딸기 / 망고 / 키위)","Smoothie","7.5"),
+        ("요거트 스무디 (플레인 / 딸기 / 망고 / 키위)","Yogurt Smoothie","7.5"),
+        ("파인애플 샤베트","Pineapple Sherbet","8.0"),
+    ])}
+    {menu("Bakery", "", [
+        ("플레인 베이글 + 크림치즈","Plain Bagel + Cream Cheese","4.5"),
+        ("크로크무슈","Croque Monsieur","5.5"),
+        ("아이스크림 크로플","Ice Cream Croffle","7.5"),
+        ("허니버터브레드","Honey Butter Bread","6.5"),
+        ("조각케이크","Piece of Cake","7.0"),
+    ])}
+    {menu("Wine · Beer · Soju", "Glass / Bottle", [
+        ("Wine",),
+        ("장발몽 샤르도네 (화이트) / 까베르네 소비뇽 (레드)","Jean Balmont Chardonnay / Cabernet Sauvignon","8.0 / 60.0"),
+        ("켄달-잭슨 빈트너스 리저브 샤르도네 / 까베르네 소비뇽","Kendall-Jackson Vintner's Reserve","90.0"),
         ("Champagne",),
-        ("세테카시네 프로세코 브륏","Sette Casine Prosecco Brut","50.0"),
+        ("장발몽 브륏","Jean Balmont Brut","60.0"),
         ("모엣 샹동","Moët & Chandon","120.0"),
-        ("Draft Beer",),
-        ("호가든 (250ml)","Hoegaarden","8.0"),
-        ("스텔라 (330ml)","Stella Artois","8.0"),
-        ("Bottle Beer",),
-        ("코로나 (1병 / 바스켓 세트)","Corona","7.0 / 40.0"),
-        ("스텔라","Stella Artois","8.0"),
-        ("호가든","Hoegaarden","8.0"),
+        ("Highball",),
+        ("짐빔 하이볼 (Glass)","Jim Beam Highball","8.0"),
+        ("짐빔 버번 위스키 1병 + 토닉워터 6병","Jim Beam Bourbon + Tonic Water ×6","120.0"),
+        ("Beer",),
+        ("병맥주 코로나 / 스텔라 / 호가든 / 버드와이저 (330ml)","Bottle Beer","8.0"),
+        ("코로나 / 버드와이저 5+1 세트","Corona / Budweiser 5+1 Set","40.0"),
+        ("생맥주 스텔라 · 호가든 (330ml / 600ml)","Draft Stella Artois · Hoegaarden","8.0 / 14.0"),
+        ("생맥주 한맥 (420ml / 2000ml)","Draft Hanmac","8.0 / 35.0"),
+        ("Soju",),
+        ("화요 (25°, 375ml)","Hwayo","35.0"),
     ])}
     </div>
-    <p class="center note">메뉴와 가격은 사정에 따라 변경될 수 있습니다. 단체 예약 및 카페 가든 파티 문의: <a href="tel:{TEL_RAW}">{TEL}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">Instagram @marinapark_banpo</a></p>
+    <p class="center note">메뉴와 가격은 사정에 따라 변경될 수 있습니다. 단체 예약 및 카페 가든 파티 문의: <a href="tel:{TEL_RAW}">{TEL}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">Instagram @marinapark_banpo</a> · <a href="https://marinapark.cafe" target="_blank" rel="noopener">카페 홈페이지 marinapark.cafe</a></p>
   </div>
 </section>
 {cafe_faq}
-<section class="section cta-band"><div class="wrap center"><h2>Private parties at the cafe garden</h2><p>1층 카페 가든에서 10~30명 소규모 파티와 모임을 열어 보세요. · {CAFE_HOURS}</p><a class="btn btn-light" href="mailto:{EMAIL}">예약하기</a></div></section>
+<section class="section cta-band"><div class="wrap center"><h2>Private parties at the cafe garden</h2><p>1층 카페 가든에서 10~30명 소규모 파티와 모임을 열어 보세요. · {CAFE_HOURS}</p><a class="btn btn-light" href="mailto:ficonvention@gmail.com?subject=%5B%EB%A7%88%EB%A6%AC%EB%82%98%ED%8C%8C%ED%81%AC%20%EC%B9%B4%ED%8E%98%5D%20%EC%98%88%EC%95%BD%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EC%98%88%EC%95%BD%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%E2%96%A0%20%EC%9D%B4%EB%A6%84%20/%20%EC%97%B0%EB%9D%BD%EC%B2%98%3A%20%0A%E2%96%A0%20%ED%9D%AC%EB%A7%9D%20%EB%82%A0%EC%A7%9C%C2%B7%EC%8B%9C%EA%B0%84%3A%20%0A%E2%96%A0%20%EC%9D%B8%EC%9B%90%3A%20%0A%E2%96%A0%20%EB%AA%A8%EC%9E%84%20%EC%A2%85%EB%A5%98%28%EC%83%9D%EC%9D%BC%C2%B7%EB%8F%99%ED%98%B8%ED%9A%8C%C2%B7%EB%B8%8C%EB%9D%BC%EC%9D%B4%EB%8D%9C%EC%83%A4%EC%9B%8C%C2%B7%EC%86%8C%EB%AA%A8%EC%9E%84%20%EB%93%B1%29%3A%20%0A%E2%96%A0%20%EC%9A%94%EC%B2%AD%EC%82%AC%ED%95%AD%28%EC%BC%80%EC%9D%B4%ED%81%AC%20%EB%B0%98%EC%9E%85%2C%20%EB%8D%B0%EC%BD%94%20%EB%93%B1%29%3A%20%0A%0A%EA%B0%90%EC%82%AC%ED%95%A9%EB%8B%88%EB%8B%A4.">예약하기</a></div></section>
 """
 
 # ======================================================================
