@@ -307,3 +307,6 @@ p{margin:0 0 1em}
 .has-hero .site-header .lang-switch a,.has-hero .site-header .lang-switch span{color:#fff}
 .has-hero .site-header.scrolled .lang-switch a,.has-hero .site-header.scrolled .lang-switch span{color:var(--gold)}
 @media (max-width:960px){.lang-switch{position:absolute;right:64px;top:50%;transform:translateY(-50%);margin-left:0}}
+.convention-wedding .split.reverse .split-text{order:1}.convention-wedding .split.reverse .split-img{order:2}
+.convention-wedding .split-img img{aspect-ratio:4/3;border-radius:4px;box-shadow:0 14px 40px rgba(20,26,34,.14)}
+@media (max-width:760px){.convention-wedding .split.reverse .split-text{order:2}.convention-wedding .split.reverse .split-img{order:1}}

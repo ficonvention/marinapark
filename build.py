@@ -354,7 +354,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=11">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -532,6 +532,19 @@ home = f"""
       <a class="btn" href="garden-wedding.html">Garden Wedding</a> <a class="btn btn-outline-dark" href="wedding.html">Wedding</a>
       <p class="contact-line"><a href="tel:{TEL_RAW}">Tel {TEL}</a></p>
     </div>
+  </div>
+</section>
+
+<section class="section alt convention-wedding" id="convention-wedding">
+  <div class="wrap split reverse">
+    <div class="split-text">
+      <p class="eyebrow">2F Convention Hall</p>
+      <h2>컨벤션 웨딩</h2>
+      <p>샹들리에 아래 플라워 아치가 놓인 2층 컨벤션홀 예식. 사면 한강 통창의 자연광 속에서 100명부터 300명까지, 1~12월 연중 실내 예식과 피로연을 한 공간에서 이어갑니다. 가든 예식 당일 비가 와도 이곳에서 그대로 진행합니다.</p>
+      <a class="btn" href="wedding.html">Discover Wedding</a>
+      <p class="contact-line"><a href="tel:{TEL_RAW}">Tel {TEL}</a></p>
+    </div>
+    <div class="split-img"><img src="{img('mp-c10.jpg')}" loading="lazy" alt="{alt_of('mp-c10.jpg')}"></div>
   </div>
 </section>
 
