@@ -231,8 +231,8 @@ p{margin:0 0 1em}
 .f-brand-ko{font-size:.7rem;letter-spacing:.3em;opacity:.7;margin-left:.6rem}
 .f-hours{font-size:.82rem;opacity:.75}
 .f-social-title{font-family:var(--sans);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7;margin-bottom:.6rem}
-.f-social{display:flex;flex-direction:column;gap:.55rem}
-.f-social a{display:flex;align-items:center;gap:.6rem;color:#cfd3d9;font-size:.85rem;letter-spacing:.06em}
+.f-social{display:flex;flex-direction:row;flex-wrap:wrap;gap:.5rem 1.2rem}
+.f-social a{display:flex;align-items:center;gap:.45rem;color:#cfd3d9;font-size:.82rem;letter-spacing:.06em}
 .f-social a:hover{color:#fff}
 .copyright a{opacity:.6}
 .page-hero .lead{color:#fff;opacity:.9;font-size:1.05rem;letter-spacing:.04em;margin-top:.4rem}
@@ -240,3 +240,8 @@ p{margin:0 0 1em}
   .facts-grid{grid-template-columns:1fr}
   .facts-grid .fact{grid-template-columns:6rem 1fr}
 }
+
+.insta-cta{margin:.2rem 0 1.2rem}
+.insta-cta a{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border:1px solid rgba(255,255,255,.55);border-radius:999px;color:#fff;font-size:.86rem;letter-spacing:.04em;transition:.25s}
+.insta-cta a:hover{background:#fff;color:var(--gold)}
+.insta-cta svg{width:16px;height:16px;fill:currentColor}

@@ -248,6 +248,21 @@ META = {
         og="og-marinapark-night.jpg", kw="마리나파크 문의, 마리나파크 전화번호, 마리나파크 오시는 길"),
 }
 
+PAGE_INSTA = {
+    "cafe.html": "cafe",
+    "business-party.html": "event", "launching-party.html": "event",
+    "wedding.html": "wedding", "garden-wedding.html": "wedding", "first-party.html": "wedding",
+}
+def insta_cta(current):
+    """page-specific Instagram emphasis line (used inside cta-bands)"""
+    key = PAGE_INSTA.get(current)
+    if not key: return ""
+    url, ko, en = INSTAGRAM[key]
+    handle = "@" + url.rsplit("/", 1)[1]
+    return (f'<p class="insta-cta"><a href="{url}" target="_blank" rel="noopener" aria-label="인스타그램 {ko}">'
+            f'<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>'
+            f'<span>{ko} 인스타그램 {handle}</span></a></p>')
+
 def nav_html(current):
     items = []
     for href, label, subs in NAV:
@@ -274,6 +289,9 @@ def page(current, title, body, extra_ld=None):
     og_img = BASE_URL + "/images/" + m["og"]
     lds = [ld(VENUE_LD), ld(WEBSITE_LD), ld(breadcrumb(current, title))] + [ld(x) for x in (extra_ld or [])]
     hero_cls = " has-hero"
+    cta = insta_cta(current)
+    if cta:
+        body = re.sub(r'(<section class="section cta-band">.*?)(<a class="btn btn-light")', lambda m: m.group(1) + cta + m.group(2), body, count=1, flags=re.S)
     return f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -307,7 +325,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -343,7 +361,7 @@ def page(current, title, body, extra_ld=None):
       <a href="contact.html">Contact</a>
     </div>
     <div class="f-col">
-      <p class="f-social-title">Instagram</p>
+      <p class="f-social-title">Instagram · Cafe · Event · Wedding</p>
       {insta_links()}
     </div>
   </div>
@@ -772,6 +790,7 @@ wedding = f"""
    ("예약", "봄·가을 주말은 6개월 이상 전 권장")],
   en="Intimate weddings from a 50-guest minimum up to 300 (weekend ceremonies at 12:00 and 18:00, two couples a day): an indoor hall with floor-to-ceiling Han River views on the 2nd floor and an outdoor rooftop garden ceremony space with a white marble gazebo on the 3rd floor. Only two couples per day; rain backup indoors; bridal room with river view; chef's course dinner or buffet.")}
 {wed_faq}
+<section class="section cta-band"><div class="wrap center"><h2>Your wedding on the Han River</h2><p>소규모 예식 · 웨딩 상담 {TEL}</p><a class="btn btn-light" href="contact.html">웨딩 상담 문의</a></div></section>
 """
 
 # ======================================================================
