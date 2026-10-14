@@ -57,6 +57,7 @@ ALT = {
     "mp-b24.jpg": "마리나파크 야간 외관, 한강에 비친 조명",
     "mp-b25.jpg": "마리나파크 루프탑 가든 선셋 네트워킹 파티",
     "mp-b26.jpg": "마리나파크 2층 홀 레드카펫 기업 행사 리셉션",
+    "mp-hero.jpg": "마리나파크 홀 내부 — 샹들리에와 한강 전망 통창, 레드카펫 버진로드",
     "mp-b27.jpg": "마리나파크 야경 — 반포 한강변 서래나루 전경",
     "mp-b28.jpg": "마리나파크 2층 컨벤션 무대와 LED 스크린 런칭 행사",
     "mp-b29.jpg": "마리나파크 외관 노을 — 한강 요트 선착장 앞",
@@ -451,7 +452,7 @@ CTA_TEL = f'<a class="btn" href="tel:{TEL_RAW}">전화 문의 {TEL}</a> <a class
 # HOME
 # ======================================================================
 home = f"""
-<section class="hero" style="background-image:url('{img('mp-b27.jpg')}')" role="img" aria-label="{alt_of('mp-b27.jpg')}">
+<section class="hero" style="background-image:url('{img('mp-hero.jpg')}')" role="img" aria-label="{alt_of('mp-hero.jpg')}">
   <div class="hero-inner">
     <h1 class="hero-title">Marina Park</h1>
     <p class="hero-sub">Creating Unforgettable<br>Memories</p>
