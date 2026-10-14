@@ -479,7 +479,8 @@ home = f"""
     <h2 class="center">시설 소개</h2>
     <p class="center sub">반포 한강 서래나루 — 1F Marina Cafe · 2F Convention · 3F Rooftop Garden</p>
     <div class="slides">
-      <figure><img src="{img('intro-01-about.jpg')}" alt="Marina Park — About us: 1F Marina Cafe, 2F Convention, 3F Rooftop Garden"></figure>
+      <figure><img src="{img('space-03-exterior.jpg')}" alt="마리나파크 외관 — 반포 한강 서래나루, MARINA PARK Cafe Restaurant Wedding"></figure>
+      <figure><img src="{img('intro-01-about.jpg')}" loading="lazy" alt="Marina Park — About us: 1F Marina Cafe, 2F Convention, 3F Rooftop Garden"></figure>
       <figure><img src="{img('intro-02-exterior.jpg')}" loading="lazy" alt="Marina Park Exterior — 건물 입면도와 외관"></figure>
       <figure><img src="{img('intro-03-vision.jpg')}" loading="lazy" alt="Marina Park Vision &amp; Mission — 루프탑 가든과 2층 홀"></figure>
     </div>
