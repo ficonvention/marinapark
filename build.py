@@ -358,7 +358,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=13">
+<link rel="stylesheet" href="css/style.css?v=14">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -509,15 +509,28 @@ home = f"""
   </div>
 </section>
 
+<section class="section cafe-intro" id="convention-2f">
+  <div class="wrap split">
+    <div class="split-img"><img src="{img('space-01-hall.jpg')}" loading="lazy" alt="마리나파크 2층 컨벤션홀 — 골드 도어와 샹들리에, 한강 통창"></div>
+    <div class="split-text">
+      <p class="eyebrow">2F Convention Hall</p>
+      <h2>2층 컨벤션</h2>
+      <p>사면이 한강 통창으로 된 2층 컨벤션홀. 100명부터 300명까지, 송년회·기업연회·갈라디너·세미나·돌잔치·예식을 진행하며 무대·LED 영상·음향을 모두 갖추고 있습니다. 샹들리에와 한강 뷰가 어우러진 격조 있는 연회장입니다.</p>
+      <a class="btn" href="business-party.html">Business Party</a> <a class="btn btn-outline-dark" href="events.html">행사 갤러리</a>
+      <p class="contact-line"><a href="tel:{TEL_RAW}">연회 예약 {TEL}</a></p>
+    </div>
+  </div>
+</section>
+
 <section class="section alt spaces" id="spaces">
   <div class="wrap">
-    <p class="eyebrow center">Spaces</p>
-    <h2 class="center">공간 소개</h2>
     <div class="space-grid">
-      <figure><img src="{img('space-01-hall.jpg')}" loading="lazy" alt="마리나파크 2층 컨벤션홀 — 골드 도어와 샹들리에, 한강 통창"><figcaption><b>2F Convention Hall</b><span>100~300명 · 샹들리에 · 사면 한강 통창 · 무대·LED·음향</span></figcaption></figure>
       <figure><img src="{img('space-02-foyer.jpg')}" loading="lazy" alt="마리나파크 2층 로비 — 네이비 카펫과 골드 도어, 한강이 보이는 대기 공간"><figcaption><b>Foyer &amp; Lounge</b><span>등록 데스크 · 포토존 · 웰컴 리셉션 · 신부대기실</span></figcaption></figure>
+      <figure><img src="{img('mp-c22.jpg')}" loading="lazy" alt="마리나파크 3층 루프탑 가든 — 한강과 서리풀 공원이 보이는 야외 공간"><figcaption><b>3F Garden</b><span>3층 가든 · 화이트 가제보 · 잔디 버진로드 · 선셋 리셉션 · 가든 예식</span></figcaption></figure>
       <figure><img src="{img('space-03-exterior.jpg')}" loading="lazy" alt="마리나파크 외관 — 반포 한강 서래나루 건물"><figcaption><b>Seoraenaru Building</b><span>반포한강공원 서래나루 · 1F 카페 · 2F 홀 · 3F 가든</span></figcaption></figure>
     </div>
+    <p class="eyebrow center" style="margin-top:3.4rem">Events</p>
+    <h2 class="center">마리나파크 행사</h2>
     <a class="event-box" href="events.html">
       <div class="event-box-img" style="background-image:url('{img('mp-b18.jpg')}')"></div>
       <div class="event-box-text">
@@ -527,7 +540,12 @@ home = f"""
         <span class="event-box-arrow">행사 사진 보기 &rsaquo;</span>
       </div>
     </a>
-    <p class="center" style="margin-top:2rem"><a class="btn" href="about.html">About Marina Park</a></p>
+    <div class="cat-grid">
+      <a class="cat-box" href="business-party.html" style="background-image:url('{img('mp-b26.jpg')}')"><span class="cat-label"><b>기업행사</b><em>Corporate Events</em></span></a>
+      <a class="cat-box" href="business-party.html" style="background-image:url('{img('mp-b17.jpg')}')"><span class="cat-label"><b>세미나</b><em>Seminar</em></span></a>
+      <a class="cat-box" href="business-party.html" style="background-image:url('{img('mp-b18.jpg')}')"><span class="cat-label"><b>갈라디너</b><em>Gala Dinner</em></span></a>
+      <a class="cat-box" href="first-party.html" style="background-image:url('{wix('2649b2_27aac57c162e474eb1debfcef01fee8c~mv2.jpg')}')"><span class="cat-label"><b>돌잔치</b><em>First Birthday</em></span></a>
+    </div>
   </div>
 </section>
 
