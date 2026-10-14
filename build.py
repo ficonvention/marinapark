@@ -25,7 +25,6 @@ ADDRESS_FULL = "서울특별시 서초구 반포동 115-1 (서래나루, 반포�
 TEL = "02-537-2440"
 TEL_RAW = "025372440"
 TEL_INTL = "+82-2-537-2440"
-FAX = "02-537-2499"
 EMAIL = "ficonvention@gmail.com"
 GEO_LAT, GEO_LNG = 37.5093, 126.9960
 CAFE_HOURS = "매일 10:00 – 22:00"
@@ -165,7 +164,6 @@ VENUE_LD = {
     "description": "서울 반포 한강 서래나루에 있는 연회·웨딩·MICE 베뉴. 1층 마리나 카페, 2층 컨벤션홀(100~300명), 3층 루프탑 가든. 송년회·기업연회·소규모 예식·가든웨딩·돌잔치 전문.",
     "url": BASE_URL + "/",
     "telephone": TEL_INTL,
-    "faxNumber": "+82-2-537-2499",
     "email": EMAIL,
     "image": [BASE_URL + "/images/og-marinapark.jpg", BASE_URL + "/images/mp-b27.jpg", BASE_URL + "/images/mp-c01.jpg"],
     "logo": BASE_URL + "/favicon.svg",
@@ -274,6 +272,25 @@ def nav_html(current):
             items.append(f'<li class="{active.strip()}"><a href="{href}">{label}</a></li>')
     return "\n".join(items)
 
+
+FAMILY_SITES = [
+    ("floatingisland", "https://floatingisland.co.kr", "세빛섬 플로팅아일랜드"),
+    ("marinapark", "https://marinapark.co.kr", "마리나파크"),
+    ("vista", "https://vistapub.co.kr", "비스타"),
+    ("sposabella", "https://sposabella.kr", "스포사벨라"),
+    ("anniversaryflower", "https://anniversaryflower.co.kr", "애니버셔리플라워"),
+    ("artm", "https://artmstudiosounds.com", "아트엠 스튜디오사운즈"),
+]
+
+def family_links(current="marinapark"):
+    parts = []
+    for key, url, name in FAMILY_SITES:
+        if key == current:
+            parts.append(f'<span class="current">{name}</span>')
+        else:
+            parts.append(f'<a href="{url}" target="_blank" rel="noopener">{name}</a>')
+    return '<div class="wrap family-sites"><span class="fs-label">Family Sites</span>' + " ".join(parts) + "</div>"
+
 def insta_links(cls="f-social"):
     out = []
     for key, (url, ko, en) in INSTAGRAM.items():
@@ -325,7 +342,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -346,7 +363,7 @@ def page(current, title, body, extra_ld=None):
     <div class="f-col">
       <div class="f-brand">MARINA PARK <span class="f-brand-ko">마리나파크</span></div>
       <p>{ADDRESS_FULL}</p>
-      <p>Tel: <a href="tel:{TEL_RAW}">{TEL}</a> &nbsp;|&nbsp; Fax: {FAX}</p>
+      <p>Tel: <a href="tel:{TEL_RAW}">{TEL}</a></p>
       <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
       <p class="f-hours">마리나 카페 {CAFE_HOURS} · 행사 문의 평일 10:00 – 18:00</p>
     </div>
@@ -365,6 +382,7 @@ def page(current, title, body, extra_ld=None):
       {insta_links()}
     </div>
   </div>
+  {family_links()}
   <div class="wrap copyright">© 2026 Marina Park · Floating Island Convention. All rights reserved. &nbsp;·&nbsp; <a href="llms.txt">AI summary</a></div>
 </footer>
 <div class="lightbox" id="lightbox" hidden><button class="lb-close" aria-label="닫기">&times;</button><button class="lb-prev" aria-label="이전">&#8249;</button><img alt=""><button class="lb-next" aria-label="다음">&#8250;</button></div>
@@ -962,7 +980,7 @@ contact = f"""
       <div class="contact-card">
         <h3>MARINA PARK · 마리나파크</h3>
         <p>{ADDRESS_FULL}</p>
-        <p>Tel: <a href="tel:{TEL_RAW}">{TEL}</a> &nbsp;(<span lang="en">{TEL_INTL}</span>)<br>Fax: {FAX}</p>
+        <p>Tel: <a href="tel:{TEL_RAW}">{TEL}</a> &nbsp;(<span lang="en">{TEL_INTL}</span>)</p>
         <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
         <p>행사 문의 평일 10:00 – 18:00 · 마리나 카페 {CAFE_HOURS}</p>
         <p class="social-row">Instagram: <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">카페 @marinapark_banpo</a> · <a href="{INSTAGRAM['event'][0]}" target="_blank" rel="noopener">이벤트 @marinaparkevent</a> · <a href="{INSTAGRAM['wedding'][0]}" target="_blank" rel="noopener">웨딩 @marinaparkwedding</a> · <a href="{FACEBOOK}" target="_blank" rel="noopener">Facebook</a></p>
