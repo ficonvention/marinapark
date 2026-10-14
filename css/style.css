@@ -330,3 +330,15 @@ p{margin:0 0 1em}
 .cat-label b{display:block;font-family:var(--serif);font-weight:400;font-size:1.3rem;letter-spacing:.04em}
 .cat-label em{display:block;font-style:normal;font-family:var(--sans);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:.3rem}
 @media (max-width:760px){.cat-grid{grid-template-columns:1fr 1fr;gap:.7rem}}
+.building-intro-head{padding-bottom:0}
+.building-intro-head + .cafe-intro{padding-top:1.4rem}
+/* venue guide: floor plans & AV */
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:.6rem}
+.plan-grid figure{margin:0}
+.plan-grid img{display:block;width:100%;border:1px solid var(--line);border-radius:4px;background:#fff}
+.plan-grid figcaption{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:.6rem;letter-spacing:.03em}
+.av-list{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:.6rem}
+.av-list figure{margin:0}
+.av-list img{display:block;width:100%;border:1px solid var(--line);border-radius:4px}
+.av-list figure:last-child{grid-column:1 / -1;max-width:60%;margin:0 auto}
+@media (max-width:760px){.plan-grid,.av-list{grid-template-columns:1fr}.av-list figure:last-child{max-width:100%}}

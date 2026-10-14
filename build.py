@@ -247,6 +247,10 @@ META = {
         title="마리나파크 행사 갤러리 — 송년회·기업연회·MICE·파티 사진 | 반포 한강",
         desc="마리나파크 2층 컨벤션홀과 3층 루프탑에서 열린 송년회·기업연회·갈라디너·런칭쇼·MICE·파티 현장 사진 모음. 한강 통창 연회장 세팅과 행사 연출.",
         og="og-marinapark-night.jpg", kw="마리나파크 행사, 마리나파크 연회 사진, 반포 기업행사, 한강 연회장 갤러리, 송년회 사진, MICE 행사"),
+    "venue-guide.html": dict(
+        title="마리나파크 도면 & AV 장비현황 — 2층·3층 평면도 · 무대·음향·영상 | 반포 한강",
+        desc="마리나파크 2층·3층 평면도(39,600×22,000mm)와 2층 컨벤션홀 AV 장비(음향·영상·조명·WiFi)·무대 사이즈. 도면·장비현황 PDF 다운로드.",
+        og="og-marinapark-night.jpg", kw="마리나파크 도면, 마리나파크 평면도, 마리나파크 장비, 반포 연회장 도면, 무대 사이즈, AV 장비"),
     "contact.html": dict(
         title="문의 · 오시는 길 — 02-537-2440 | 마리나파크 반포 서래나루",
         desc="마리나파크 행사 문의 02-537-2440, ficonvention@gmail.com. 서울 서초구 반포동 115-1 서래나루(반포한강공원). 송년회·예식·돌잔치·기업행사 견적 문의.",
@@ -358,7 +362,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=14">
+<link rel="stylesheet" href="css/style.css?v=15">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -496,6 +500,14 @@ home = f"""
   </div>
 </section>
 
+<section class="section building-intro-head" id="building">
+  <div class="wrap center">
+    <p class="eyebrow center">Building</p>
+    <h2 class="center">건물 소개</h2>
+    <p class="sub">반포 한강 서래나루 — 1층 카페 · 2층 컨벤션 · 3층 가든 · 서래나루 빌딩</p>
+  </div>
+</section>
+
 <section class="section cafe-intro" id="cafe-1f">
   <div class="wrap split">
     <div class="split-img"><img src="{img('cafe-front.jpg')}" loading="lazy" alt="마리나파크 1층 카페 입구 — 레드 어닝과 Café 사인, 테라스 화분"></div>
@@ -529,6 +541,7 @@ home = f"""
       <figure><img src="{img('mp-c22.jpg')}" loading="lazy" alt="마리나파크 3층 루프탑 가든 — 한강과 서리풀 공원이 보이는 야외 공간"><figcaption><b>3F Garden</b><span>3층 가든 · 화이트 가제보 · 잔디 버진로드 · 선셋 리셉션 · 가든 예식</span></figcaption></figure>
       <figure><img src="{img('space-03-exterior.jpg')}" loading="lazy" alt="마리나파크 외관 — 반포 한강 서래나루 건물"><figcaption><b>Seoraenaru Building</b><span>반포한강공원 서래나루 · 1F 카페 · 2F 홀 · 3F 가든</span></figcaption></figure>
     </div>
+    <p class="center" style="margin-top:2rem"><a class="btn" href="venue-guide.html">CAD 도면 · AV 장비현황</a></p>
     <p class="eyebrow center" style="margin-top:3.4rem">Events</p>
     <h2 class="center">마리나파크 행사</h2>
     <a class="event-box" href="events.html">
@@ -1126,6 +1139,41 @@ events = f"""
 <section class="section cta-band"><div class="wrap center"><h2>Host your event at Marina Park</h2><p>행사 일정과 인원을 알려주시면 맞춤 제안을 드립니다. · {TEL}</p><a class="btn btn-light" href="contact.html">행사 문의</a></div></section>
 """
 
+# ======================================================================
+# VENUE GUIDE / 도면 & AV 장비현황
+# ======================================================================
+venue_guide = f"""
+{hero("space-01-hall.jpg", "Marina Park", "도면 & AV 장비현황", "2층 · 3층 평면도 · AV 장비 · 무대 사이즈")}
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow center">Floor Plan</p>
+    <h2 class="center">평면도</h2>
+    <p class="center sub">마리나파크 2층·3층 평면도입니다. 전체 39,600 × 22,000 (단위 mm). 사진을 누르면 크게 보실 수 있습니다.</p>
+    <div class="plan-grid">
+      <figure><a href="{img('marinapark-2f-floorplan.jpg')}" data-lightbox><img src="{img('marinapark-2f-floorplan.jpg')}" loading="lazy" alt="마리나파크 2층 평면도 — 2F Floor Plan"></a><figcaption>2층 평면도 · 2F Floor Plan</figcaption></figure>
+      <figure><a href="{img('marinapark-3f-floorplan.jpg')}" data-lightbox><img src="{img('marinapark-3f-floorplan.jpg')}" loading="lazy" alt="마리나파크 3층 평면도 — 3F Floor Plan, 루프탑 가든"></a><figcaption>3층 평면도 · 3F Floor Plan (루프탑 가든)</figcaption></figure>
+    </div>
+    <p class="center" style="margin-top:1.6rem"><a class="btn" href="files/marinapark-floorplan.pdf" download>도면 다운로드 (PDF)</a></p>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap">
+    <p class="eyebrow center">AV Equipment</p>
+    <h2 class="center">AV 장비현황</h2>
+    <p class="center sub">마리나파크 2층 컨벤션홀 AV 장비 및 무대 사이즈 — 음향 · 영상 · 조명 · WiFi · 무대 규격.</p>
+    <div class="av-list">
+      <figure><a href="{img('av-1.jpg')}" data-lightbox><img src="{img('av-1.jpg')}" loading="lazy" alt="마리나파크 AV 장비 — 음향(Audio) 시스템"></a></figure>
+      <figure><a href="{img('av-2.jpg')}" data-lightbox><img src="{img('av-2.jpg')}" loading="lazy" alt="마리나파크 AV 장비 — 영상(Video) 시스템, 8,000루멘 프로젝터·200인치 스크린"></a></figure>
+      <figure><a href="{img('av-3.jpg')}" data-lightbox><img src="{img('av-3.jpg')}" loading="lazy" alt="마리나파크 AV 장비 — 조명(Lighting) 시스템"></a></figure>
+      <figure><a href="{img('av-4.jpg')}" data-lightbox><img src="{img('av-4.jpg')}" loading="lazy" alt="마리나파크 AV 장비 — WiFi · 인터넷"></a></figure>
+      <figure><a href="{img('av-5.jpg')}" data-lightbox><img src="{img('av-5.jpg')}" loading="lazy" alt="마리나파크 무대 사이즈 — Stage Size (cm)"></a></figure>
+    </div>
+    <p class="center" style="margin-top:1.6rem"><a class="btn" href="files/marinapark-av-equipment.pdf" download>AV 장비현황 다운로드 (PDF)</a></p>
+  </div>
+</section>
+<section class="section cta-band"><div class="wrap center"><h2>Plan your event at Marina Park</h2><p>행사 일정과 인원을 알려주시면 맞춤 제안을 드립니다. · {TEL}</p><a class="btn btn-light" href="contact.html">행사 문의</a></div></section>
+"""
+
 PAGES = {
     "index.html": ("Home", home, [home_faq_ld]),
     "about.html": ("About us", about, []),
@@ -1140,6 +1188,7 @@ PAGES = {
     "garden-wedding.html": ("Garden Wedding", garden, [garden_faq_ld,
         service_ld("가든웨딩·야외 결혼식", "Garden wedding", "3층 루프탑 화이트 가제보 가든 예식, 한강·서리풀 공원 뷰, 우천 시 실내 전환.", BASE_URL + "/garden-wedding.html", "예비 신랑신부")]),
     "events.html": ("Marina Park Event", events, []),
+    "venue-guide.html": ("도면 & AV 장비현황", venue_guide, []),
     "cafe.html": ("Marina Cafe", cafe, [cafe_faq_ld]),
     "contact.html": ("Contact", contact, []),
 }
@@ -1236,6 +1285,7 @@ META_EN = {
     "garden-wedding.html": ("Garden Weddings · Outdoor Ceremonies — White Gazebo Rooftop | Marina Park", "Garden weddings on the 3F rooftop of Marina Park with the Han River and Seoripul Park behind you. White marble gazebo, lawn aisle, sunset ceremonies. Late March–June and September–November; rain backup in the 2F hall; 50-guest minimum."),
     "cafe.html": ("Marina Cafe — River-view Cafe · Pizza, Pasta, Wine · 10:00–22:00 | Marina Park 1F", "Ground-floor cafe at Seoraenaru, Banpo Han River Park. Coffee, tea, desserts, pizza, pasta and wine. Open daily 10:00–22:00. Small parties and gatherings in the cafe garden."),
     "events.html": ("Marina Park Events — Year-end Parties, Corporate Banquets, MICE & Parties | Han River", "Photos from year-end parties, corporate banquets, galas, launch shows, MICE events and parties held in the 2F Convention Hall and 3F rooftop of Marina Park on the Han River."),
+    "venue-guide.html": ("Marina Park Floor Plans & AV Equipment — 2F/3F Plans, Stage & Sound | Han River", "Marina Park 2F and 3F floor plans (39,600 × 22,000 mm) and the 2F Convention Hall AV equipment (sound, video, lighting, WiFi) and stage size. Download the floor plans and equipment list as PDF."),
     "contact.html": ("Contact & Directions — +82-2-537-2440 | Marina Park, Seoraenaru Banpo", "Event inquiries: +82-2-537-2440, ficonvention@gmail.com. 115-1 Banpo-dong, Seocho-gu, Seoul (Banpo Han River Park). Quotes for parties, weddings, first birthdays and corporate events."),
 }
 _HANGUL = re.compile(r"[가-힣]")
