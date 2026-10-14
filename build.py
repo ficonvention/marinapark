@@ -42,7 +42,7 @@ TODAY = datetime.date.today().isoformat()
 
 NAV = [
     ("index.html", "Home", [("about.html", "About us")]),
-    ("business-party.html", "Business Party", []),
+    ("business-party.html", "Business Party", [("events.html", "Marina Park Event")]),
     ("launching-party.html", "Launching Party", []),
     ("first-party.html", "1st Party", []),
     ("wedding.html", "Wedding", [("garden-wedding.html", "Garden Wedding")]),
@@ -243,6 +243,10 @@ META = {
         title="마리나 카페 — 한강뷰 카페 · 피자 파스타 와인 · 10:00~22:00 | 마리나파크 1층",
         desc="반포 한강공원 서래나루 마리나파크 1층 카페. 커피·티·디저트·피자·파스타·와인. 매일 10:00~22:00. 카페 가든 소규모 파티·모임 예약 가능.",
         og="og-marinapark.jpg", kw="반포 한강 카페, 서래나루 카페, 한강뷰 카페, 반포한강공원 카페"),
+    "events.html": dict(
+        title="마리나파크 행사 갤러리 — 송년회·기업연회·MICE·파티 사진 | 반포 한강",
+        desc="마리나파크 2층 컨벤션홀과 3층 루프탑에서 열린 송년회·기업연회·갈라디너·런칭쇼·MICE·파티 현장 사진 모음. 한강 통창 연회장 세팅과 행사 연출.",
+        og="og-marinapark-night.jpg", kw="마리나파크 행사, 마리나파크 연회 사진, 반포 기업행사, 한강 연회장 갤러리, 송년회 사진, MICE 행사"),
     "contact.html": dict(
         title="문의 · 오시는 길 — 02-537-2440 | 마리나파크 반포 서래나루",
         desc="마리나파크 행사 문의 02-537-2440, ficonvention@gmail.com. 서울 서초구 반포동 115-1 서래나루(반포한강공원). 송년회·예식·돌잔치·기업행사 견적 문의.",
@@ -354,7 +358,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=13">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -388,6 +392,7 @@ def page(current, title, body, extra_ld=None):
       <a href="first-party.html">1st Party · 돌잔치</a>
       <a href="wedding.html">Wedding · 소규모 예식</a>
       <a href="garden-wedding.html">Garden Wedding</a>
+      <a href="events.html">Marina Park Event</a>
       <a href="cafe.html">Marina Cafe</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -513,7 +518,16 @@ home = f"""
       <figure><img src="{img('space-02-foyer.jpg')}" loading="lazy" alt="마리나파크 2층 로비 — 네이비 카펫과 골드 도어, 한강이 보이는 대기 공간"><figcaption><b>Foyer &amp; Lounge</b><span>등록 데스크 · 포토존 · 웰컴 리셉션 · 신부대기실</span></figcaption></figure>
       <figure><img src="{img('space-03-exterior.jpg')}" loading="lazy" alt="마리나파크 외관 — 반포 한강 서래나루 건물"><figcaption><b>Seoraenaru Building</b><span>반포한강공원 서래나루 · 1F 카페 · 2F 홀 · 3F 가든</span></figcaption></figure>
     </div>
-    <p class="center"><a class="btn" href="about.html">About Marina Park</a></p>
+    <a class="event-box" href="events.html">
+      <div class="event-box-img" style="background-image:url('{img('mp-b18.jpg')}')"></div>
+      <div class="event-box-text">
+        <p class="eyebrow">Gallery</p>
+        <h3>Marina Park Event</h3>
+        <p>송년회 · 기업연회 · 갈라디너 · 런칭쇼 · MICE · 파티 — 마리나파크 행사 사진 모두 보기</p>
+        <span class="event-box-arrow">행사 사진 보기 &rsaquo;</span>
+      </div>
+    </a>
+    <p class="center" style="margin-top:2rem"><a class="btn" href="about.html">About Marina Park</a></p>
   </div>
 </section>
 
@@ -1064,6 +1078,36 @@ contact = f"""
 """
 
 # ======================================================================
+# ======================================================================
+# EVENTS GALLERY / 마리나파크 행사
+# ======================================================================
+events = f"""
+{hero("mp-b28.jpg", "Marina Park", "Marina Park Event", "송년회 · 기업연회 · 갈라디너 · 런칭쇼 · MICE · 파티")}
+<section class="section">
+  <div class="wrap">
+    <p class="center sub">한강이 보이는 2층 컨벤션홀과 3층 루프탑에서 열린 마리나파크의 행사 현장입니다. 송년회·기업연회·갈라디너부터 런칭쇼·MICE·파티까지, 공간 세팅과 연출을 사진으로 확인하세요. 사진을 누르면 크게 보실 수 있습니다.</p>
+    {gallery([
+        ("mp-b28.jpg", 3, 2), ("mp-b18.jpg", 3, 2), ("mp-b26.jpg", 3, 2),
+        ("mp-b31.jpg", 3, 2), ("mp-b30.jpg", 3, 2), ("mp-b17.jpg", 3, 2),
+        ("mp-b32.jpg", 2, 1), ("mp-b25.jpg", 2, 1), ("mp-b10.jpg", 3, 2),
+        ("mp-b21.jpg", 4, 3), ("mp-b24.jpg", 3, 2), ("mp-b27.jpg", 3, 2),
+        ("mp-b29.jpg", 2, 1), ("mp-b09.jpg", 3, 2),
+        ("2649b2_2550e0e1deda4df8a29c7eb8a3ae9d1e~mv2.png", 7, 4),
+        ("2649b2_ffa6948050474d00a60c19183833a48e~mv2.jpg", 2, 1),
+        ("2649b2_349a109dd0544dc68648d9f7df86de79~mv2.jpg", 4, 3),
+        ("2649b2_72c455d453074068a52a1ee11fc9a2c1~mv2.jpg", 4, 3),
+        ("2649b2_dad8a86f44a54addbec2938ead2ed497~mv2.jpg", 4, 3),
+        ("2649b2_c61315fdb1d8465daf24e08a05ebad93~mv2.jpeg", 3, 2),
+    ])}
+    <p class="center" style="margin-top:2rem">
+      <a class="btn" href="business-party.html">Business Party · 송년회</a>
+      <a class="btn btn-outline-dark" href="launching-party.html">Launching Party</a>
+    </p>
+  </div>
+</section>
+<section class="section cta-band"><div class="wrap center"><h2>Host your event at Marina Park</h2><p>행사 일정과 인원을 알려주시면 맞춤 제안을 드립니다. · {TEL}</p><a class="btn btn-light" href="contact.html">행사 문의</a></div></section>
+"""
+
 PAGES = {
     "index.html": ("Home", home, [home_faq_ld]),
     "about.html": ("About us", about, []),
@@ -1077,6 +1121,7 @@ PAGES = {
         service_ld("소규모 예식·스몰웨딩·컨벤션 웨딩", "Wedding venue", "하객 50명대 가족 예식부터 300명 컨벤션 웨딩까지. 한강 통창 홀 + 가든, 하루 두 커플.", BASE_URL + "/wedding.html", "예비 신랑신부")]),
     "garden-wedding.html": ("Garden Wedding", garden, [garden_faq_ld,
         service_ld("가든웨딩·야외 결혼식", "Garden wedding", "3층 루프탑 화이트 가제보 가든 예식, 한강·서리풀 공원 뷰, 우천 시 실내 전환.", BASE_URL + "/garden-wedding.html", "예비 신랑신부")]),
+    "events.html": ("Marina Park Event", events, []),
     "cafe.html": ("Marina Cafe", cafe, [cafe_faq_ld]),
     "contact.html": ("Contact", contact, []),
 }
@@ -1172,6 +1217,7 @@ META_EN = {
     "wedding.html": ("Intimate Weddings · Small Weddings · Convention Weddings on the Han River | Marina Park", "From a 50-guest family wedding to a 300-guest convention wedding. River-view 2F hall and 3F garden ceremonies, weekend slots at 12:00 and 18:00, two couples a day. Course menus from ₩100,000, indoor rain backup, parking for 200 cars."),
     "garden-wedding.html": ("Garden Weddings · Outdoor Ceremonies — White Gazebo Rooftop | Marina Park", "Garden weddings on the 3F rooftop of Marina Park with the Han River and Seoripul Park behind you. White marble gazebo, lawn aisle, sunset ceremonies. Late March–June and September–November; rain backup in the 2F hall; 50-guest minimum."),
     "cafe.html": ("Marina Cafe — River-view Cafe · Pizza, Pasta, Wine · 10:00–22:00 | Marina Park 1F", "Ground-floor cafe at Seoraenaru, Banpo Han River Park. Coffee, tea, desserts, pizza, pasta and wine. Open daily 10:00–22:00. Small parties and gatherings in the cafe garden."),
+    "events.html": ("Marina Park Events — Year-end Parties, Corporate Banquets, MICE & Parties | Han River", "Photos from year-end parties, corporate banquets, galas, launch shows, MICE events and parties held in the 2F Convention Hall and 3F rooftop of Marina Park on the Han River."),
     "contact.html": ("Contact & Directions — +82-2-537-2440 | Marina Park, Seoraenaru Banpo", "Event inquiries: +82-2-537-2440, ficonvention@gmail.com. 115-1 Banpo-dong, Seocho-gu, Seoul (Banpo Han River Park). Quotes for parties, weddings, first birthdays and corporate events."),
 }
 _HANGUL = re.compile(r"[가-힣]")

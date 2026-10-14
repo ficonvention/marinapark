@@ -311,3 +311,13 @@ p{margin:0 0 1em}
 .convention-wedding .split-img img{aspect-ratio:4/3;border-radius:4px;box-shadow:0 14px 40px rgba(20,26,34,.14)}
 @media (max-width:760px){.convention-wedding .split.reverse .split-text{order:2}.convention-wedding .split.reverse .split-img{order:1}}
 .cafe-intro .split-img img{aspect-ratio:3/2;border-radius:4px;box-shadow:0 14px 40px rgba(20,26,34,.14)}
+/* Marina Park Event box (Spaces section) */
+.event-box{display:grid;grid-template-columns:1fr 1.3fr;gap:0;margin-top:2.2rem;border-radius:4px;overflow:hidden;box-shadow:0 10px 30px rgba(20,26,34,.1);background:#141a22;color:#fff;text-decoration:none;transition:box-shadow .2s,transform .2s}
+.event-box:hover{box-shadow:0 16px 44px rgba(20,26,34,.2);transform:translateY(-2px)}
+.event-box-img{background-size:cover;background-position:center;min-height:220px}
+.event-box-text{padding:2.4rem 2.6rem;display:flex;flex-direction:column;justify-content:center}
+.event-box-text .eyebrow{color:var(--gold)}
+.event-box-text h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.06em;margin:.1em 0 .5em;color:#fff}
+.event-box-text p{color:#cfd3d8;font-size:.98rem;margin-bottom:1.2rem}
+.event-box-arrow{color:var(--gold);font-family:var(--sans);letter-spacing:.14em;font-size:.82rem;text-transform:uppercase}
+@media (max-width:760px){.event-box{grid-template-columns:1fr}.event-box-img{min-height:180px}.event-box-text{padding:1.8rem}}
