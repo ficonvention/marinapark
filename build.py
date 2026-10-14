@@ -328,6 +328,9 @@ def page(current, title, body, extra_ld=None):
 <meta name="keywords" content="{html.escape(m["kw"])}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="{url}">
+<link rel="alternate" hreflang="ko" href="{url}">
+<link rel="alternate" hreflang="en" href="{url.replace('.html','-en.html') if url.endswith('.html') else url + 'index-en.html'}">
+<link rel="alternate" hreflang="x-default" href="{url}">
 <meta name="author" content="Marina Park · Floating Island Convention">
 <meta name="geo.region" content="KR-11">
 <meta name="geo.placename" content="서울 서초구 반포동 서래나루">
@@ -351,7 +354,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -362,6 +365,7 @@ def page(current, title, body, extra_ld=None):
     <nav class="site-nav" aria-label="주 메뉴"><ul>
 {nav_html(current)}
     </ul></nav>
+    <div class="lang-switch" aria-label="Language"><a href="{current}" class="on" lang="ko">한국어</a><span>|</span><a href="{current.replace('.html','-en.html')}" lang="en">English</a></div>
   </div>
 </header>
 <main>
@@ -637,7 +641,7 @@ biz_faq, biz_faq_ld = faq("송년회 · 기업행사 FAQ", [
     ("현수막·포토월·기업 로고 노출이 가능한가요?", "홀 내부 현수막과 포토월 설치가 가능하고, 외부 도교·외벽 현수막은 별도 협의로 설치할 수 있습니다. 시안은 행사 1주 전까지 전달해 주시면 됩니다."),
 ])
 business = f"""
-{hero("mp-b28.jpg", "Marina Park", "Business Party / MICE Event", "송년회 · 연말 모임 · 기업연회 · 컨퍼런스")}
+{hero("mp-b28.jpg", "Marina Park", "Business Party / MICE Event")}
 <section class="section">
   <div class="wrap">
     <p class="center sub">송년회·연말 모임, 기업연회·갈라디너, 컨퍼런스·세미나·시상식 — 한강이 보이는 2층 컨벤션홀에서 100명부터 300명까지 진행하실 수 있습니다. 식사 후에는 3층 루프탑 가든에서 애프터파티를 이어갑니다.</p>
@@ -1089,6 +1093,7 @@ def sitemap():
     for f in PAGES:
         loc = BASE_URL + "/" + ("" if f == "index.html" else f)
         urls.append(f"  <url><loc>{loc}</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>{prio.get(f, '0.7')}</priority></url>")
+        urls.append(f"  <url><loc>{BASE_URL}/{f.replace('.html', '-en.html')}</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>{prio.get(f, '0.7')}</priority></url>")
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n"
 
 LLMS = f"""# 마리나파크 (Marina Park) — 반포 한강 연회장
@@ -1136,11 +1141,82 @@ LLMS = f"""# 마리나파크 (Marina Park) — 반포 한강 연회장
 Marina Park is a riverside event venue at Seoraenaru, Banpo Han River Park, Seoul (115-1 Banpo-dong, Seocho-gu). Ground-floor cafe (daily 10:00–22:00), 2nd-floor convention hall for 100–300 guests with stage, LED and sound, and a 3rd-floor rooftop garden with a white marble gazebo. Year-end parties, corporate galas and conferences, intimate weddings and garden weddings (two couples per day, indoor rain backup), first-birthday celebrations (50–200 guests), product launches. Course menus from KRW 100,000 per person; halal and vegetarian menus available. Parking for about 200 cars, free for 3 hours. Tel +82-2-537-2440, {EMAIL}.
 """
 
+# ---------- English edition: translate text nodes of the Korean pages ----------
+I18N = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "i18n_en.json"), encoding="utf-8"))
+META_EN = {
+    "index.html": ("Marina Park | Han River Event Venue in Banpo, Seoul — Weddings, Parties, Corporate Events", "Marina Park at Seoraenaru, Banpo Han River Park, Seoul. 2F convention hall for 100–300 guests, 3F rooftop garden with a white gazebo, 1F cafe. Year-end parties, intimate and garden weddings, first birthdays, corporate galas and launches. Tel +82-2-537-2440"),
+    "about.html": ("About Marina Park — 1F Cafe · 2F Convention Hall · 3F Rooftop Garden", "Three spaces on the Han River: Marina Cafe (daily 10:00–22:00), a glass-walled convention hall for 100–300 guests, and a rooftop garden with a white marble gazebo. 115-1 Banpo-dong, Seocho-gu, Seoul."),
+    "business-party.html": ("Year-end Parties · Corporate Banquets · MICE Venue in Banpo | Marina Park", "Year-end parties, corporate galas and conferences with Han River views. From 50-person gatherings to 300-person company parties; stage, LED and sound included, rooftop after-party, course, buffet and free-flow drinks."),
+    "launching-party.html": ("Launch Shows · Brand Promotions · Media Events on the Han River | Marina Park", "Product launches, brand promotions and media days at Marina Park: 2F convention stage, LED screen and sound, 3F rooftop after-party, illuminated facade at night."),
+    "first-party.html": ("First Birthday Venue in Banpo · River-view Family Banquets | Marina Park", "First-birthday (doljanchi) celebrations with Han River views, from a 50-guest family room to 100–200 guests. Dol table and photo table package, banner, course dinner, MC. Free meals for children under 5, 3 hours free parking."),
+    "wedding.html": ("Intimate Weddings · Small Weddings · Convention Weddings on the Han River | Marina Park", "From a 50-guest family wedding to a 300-guest convention wedding. River-view 2F hall and 3F garden ceremonies, weekend slots at 12:00 and 18:00, two couples a day. Course menus from ₩100,000, indoor rain backup, parking for 200 cars."),
+    "garden-wedding.html": ("Garden Weddings · Outdoor Ceremonies — White Gazebo Rooftop | Marina Park", "Garden weddings on the 3F rooftop of Marina Park with the Han River and Seoripul Park behind you. White marble gazebo, lawn aisle, sunset ceremonies. Late March–June and September–November; rain backup in the 2F hall; 50-guest minimum."),
+    "cafe.html": ("Marina Cafe — River-view Cafe · Pizza, Pasta, Wine · 10:00–22:00 | Marina Park 1F", "Ground-floor cafe at Seoraenaru, Banpo Han River Park. Coffee, tea, desserts, pizza, pasta and wine. Open daily 10:00–22:00. Small parties and gatherings in the cafe garden."),
+    "contact.html": ("Contact & Directions — +82-2-537-2440 | Marina Park, Seoraenaru Banpo", "Event inquiries: +82-2-537-2440, ficonvention@gmail.com. 115-1 Banpo-dong, Seocho-gu, Seoul (Banpo Han River Park). Quotes for parties, weddings, first birthdays and corporate events."),
+}
+_HANGUL = re.compile(r"[가-힣]")
+def _tr(text):
+    t = text.strip()
+    if not t or not _HANGUL.search(t):
+        return text
+    if t in I18N:
+        lead = text[:len(text) - len(text.lstrip())]
+        trail = text[len(text.rstrip()):]
+        return lead + I18N[t] + trail
+    return text
+
+def to_english(fname, html_ko):
+    out = []
+    pos = 0
+    # translate text nodes (not inside script/style), keep tags intact
+    for m in re.finditer(r"<(script|style)\b[^>]*>.*?</\1>|<[^>]+>", html_ko, flags=re.S):
+        out.append(_tr(html.unescape(html_ko[pos:m.start()])).replace("&", "&amp;").replace("<", "&lt;") if _HANGUL.search(html_ko[pos:m.start()]) else html_ko[pos:m.start()])
+        tag = m.group(0)
+        if not tag.startswith("<script") and not tag.startswith("<style"):
+            tag = re.sub(r'(alt|aria-label|title|placeholder)="([^"]*)"', lambda a: f'{a.group(1)}="{html.escape(_tr(html.unescape(a.group(2))), quote=True)}"', tag)
+        out.append(tag)
+        pos = m.end()
+    out.append(html_ko[pos:])
+    h = "".join(out)
+    en_name = fname.replace(".html", "-en.html")
+    url_ko = BASE_URL + "/" + ("" if fname == "index.html" else fname)
+    url_en = BASE_URL + "/" + en_name
+    title, desc = META_EN[fname]
+    h = h.replace('<html lang="ko">', '<html lang="en">')
+    h = re.sub(r"<title>.*?</title>", f"<title>{html.escape(title)}</title>", h, count=1, flags=re.S)
+    h = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{html.escape(desc)}">', h, count=1)
+    h = re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{html.escape(title)}">', h, count=1)
+    h = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{html.escape(desc)}">', h, count=1)
+    h = re.sub(r'<meta name="twitter:title" content="[^"]*">', f'<meta name="twitter:title" content="{html.escape(title)}">', h, count=1)
+    h = re.sub(r'<meta name="twitter:description" content="[^"]*">', f'<meta name="twitter:description" content="{html.escape(desc)}">', h, count=1)
+    h = h.replace('<meta property="og:locale" content="ko_KR">\n<meta property="og:locale:alternate" content="en_US">', '<meta property="og:locale" content="en_US">\n<meta property="og:locale:alternate" content="ko_KR">')
+    h = h.replace(f'<link rel="canonical" href="{url_ko}">', f'<link rel="canonical" href="{url_en}">')
+    h = h.replace(f'<meta property="og:url" content="{url_ko}">', f'<meta property="og:url" content="{url_en}">')
+    # language switch: EN active
+    h = h.replace(f'<a href="{fname}" class="on" lang="ko">한국어</a><span>|</span><a href="{en_name}" lang="en">English</a>', f'<a href="{fname}" lang="ko">한국어</a><span>|</span><a href="{en_name}" class="on" lang="en">English</a>')
+    # internal links -> English pages
+    def _link(m):
+        href = m.group(1)
+        if href in PAGES and href != "index.html":
+            return f'href="{href.replace(".html", "-en.html")}"'
+        if href == "index.html":
+            return 'href="index-en.html"'
+        if href.startswith("cafe.html#"):
+            return f'href="cafe-en.html#{href.split("#",1)[1]}"'
+        return m.group(0)
+    h = re.sub(r'href="([a-z\-]+\.html(?:#[^"]*)?)"', _link, h)
+    h = h.replace('<html lang="en">', '<html lang="en">', 1)
+    return en_name, h
+
 if __name__ == "__main__":
     for fname, (title, body, extra) in PAGES.items():
+        html_ko = page(fname, title, body, extra)
         with open(os.path.join(OUT, fname), "w", encoding="utf-8") as f:
-            f.write(page(fname, title, body, extra))
-        print("wrote", fname)
+            f.write(html_ko)
+        en_name, html_en = to_english(fname, html_ko)
+        with open(os.path.join(OUT, en_name), "w", encoding="utf-8") as f:
+            f.write(html_en)
+        print("wrote", fname, en_name)
     open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8").write(ROBOTS)
     open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8").write(sitemap())
     open(os.path.join(OUT, "llms.txt"), "w", encoding="utf-8").write(LLMS)

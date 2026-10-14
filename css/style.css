@@ -298,4 +298,12 @@ p{margin:0 0 1em}
 .page-hero h1{font-size:clamp(1.7rem,3.6vw,2.6rem);letter-spacing:.06em}
 .page-hero .lead{font-size:1rem}
 .page-hero::before{background:linear-gradient(to top,rgba(20,26,34,.5),rgba(20,26,34,0))}
-.page-hero .wrap{padding-bottom:2.2rem}
+.page-hero .wrap{padding-bottom:1.3rem}
+/* language switch */
+.site-header .wrap{position:relative}
+.lang-switch{display:flex;align-items:center;gap:.45rem;font-family:"Josefin Sans","Noto Sans KR",sans-serif;font-size:.78rem;letter-spacing:.06em;margin-left:1.2rem;white-space:nowrap}
+.lang-switch a{color:var(--gold);opacity:.7}.lang-switch a.on{opacity:1;font-weight:600;border-bottom:1px solid currentColor}
+.lang-switch span{opacity:.4;color:var(--gold)}
+.has-hero .site-header .lang-switch a,.has-hero .site-header .lang-switch span{color:#fff}
+.has-hero .site-header.scrolled .lang-switch a,.has-hero .site-header.scrolled .lang-switch span{color:var(--gold)}
+@media (max-width:960px){.lang-switch{position:absolute;right:64px;top:50%;transform:translateY(-50%);margin-left:0}}
