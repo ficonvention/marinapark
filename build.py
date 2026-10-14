@@ -29,7 +29,7 @@ EMAIL = "ficonvention@gmail.com"
 GEO_LAT, GEO_LNG = 37.5093, 126.9960
 CAFE_HOURS = "매일 10:00 – 22:00"
 INSTAGRAM = {
-    "cafe":    ("https://www.instagram.com/marinapark_cafe", "마리나파크 카페", "Cafe"),
+    "cafe":    ("https://www.instagram.com/marinapark.cafe", "마리나파크 카페", "Cafe"),
     "event":   ("https://www.instagram.com/marinaparkevent", "마리나파크 이벤트", "Event"),
     "wedding": ("https://www.instagram.com/marinaparkwedding", "마리나파크 웨딩", "Wedding"),
 }
