@@ -354,7 +354,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=12">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -488,11 +488,18 @@ home = f"""
       <figure><img src="{img('intro-02-exterior.jpg')}" loading="lazy" alt="Marina Park Exterior — 건물 입면도와 외관"></figure>
       <figure><img src="{img('intro-03-vision.jpg')}" loading="lazy" alt="Marina Park Vision &amp; Mission — 루프탑 가든과 2층 홀"></figure>
     </div>
-    <div class="slides cols-2">
-      <figure><img src="{img('intro-04-launching.jpg')}" loading="lazy" alt="Launching Show — 2층 컨벤션홀 런칭쇼"></figure>
-      <figure><img src="{img('intro-05-mice.jpg')}" loading="lazy" alt="MICE Events — 2층 컨벤션홀 행사"></figure>
-      <figure><img src="{img('intro-06-gala.jpg')}" loading="lazy" alt="Gala Dinner — 2층 컨벤션홀 갈라디너 세팅"></figure>
-      <figure><img src="{img('intro-07-party.jpg')}" loading="lazy" alt="Party — 한강 뷰 파티와 루프탑 불꽃"></figure>
+  </div>
+</section>
+
+<section class="section cafe-intro" id="cafe-1f">
+  <div class="wrap split">
+    <div class="split-img"><img src="{img('cafe-front.jpg')}" loading="lazy" alt="마리나파크 1층 카페 입구 — 레드 어닝과 Café 사인, 테라스 화분"></div>
+    <div class="split-text">
+      <p class="eyebrow">1F Marina Cafe</p>
+      <h2>1층 카페</h2>
+      <p>한강이 보이는 1층 마리나 카페. 커피와 티, 디저트, 피자·파스타, 와인을 즐길 수 있고, 카페 가든에서는 10~30명 소규모 모임과 파티를 열 수 있습니다. {CAFE_HOURS}.</p>
+      <a class="btn" href="cafe.html">Cafe Menu</a> <a class="btn btn-outline-dark" href="https://marinapark.cafe" target="_blank" rel="noopener">카페 홈페이지</a>
+      <p class="contact-line"><a href="tel:{CAFE_TEL_RAW}">카페 예약 {CAFE_TEL}</a></p>
     </div>
   </div>
 </section>
