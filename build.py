@@ -343,7 +343,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -452,9 +452,9 @@ CTA_TEL = f'<a class="btn" href="tel:{TEL_RAW}">전화 문의 {TEL}</a> <a class
 # HOME
 # ======================================================================
 home = f"""
-<section class="hero" style="background-image:url('{img('mp-hero.jpg')}')" role="img" aria-label="{alt_of('mp-hero.jpg')}">
+<section class="hero hero-low" style="background-image:url('{img('mp-hero.jpg')}')" role="img" aria-label="{alt_of('mp-hero.jpg')}">
   <div class="hero-inner">
-    <h1 class="hero-title">Marina Park</h1>
+    <h1 class="hero-title sr-only">마리나파크 Marina Park — 반포 한강 연회장</h1>
     <p class="hero-sub">Creating Unforgettable<br>Memories</p>
     <p class="lead">반포 한강 서래나루 — 송년회 · 소규모 예식 · 돌잔치 · 기업 행사</p>
     <div class="hero-cta">
