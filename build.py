@@ -25,7 +25,7 @@ ADDRESS_FULL = "서울특별시 서초구 반포동 115-1 (서래나루, 반포�
 TEL = "02-537-2440"
 TEL_RAW = "025372440"
 TEL_INTL = "+82-2-537-2440"
-TEL_LABEL = "연회 · 행사 (플로팅아일랜드/마리나파크)"
+TEL_LABEL = "연회 예약 (플로팅아일랜드/마리나파크)"
 CAFE_TEL = "02-596-2440"
 CAFE_TEL_RAW = "025962440"
 CAFE_TEL_INTL = "+82-2-596-2440"
@@ -374,8 +374,8 @@ def page(current, title, body, extra_ld=None):
     <div class="f-col">
       <div class="f-brand">MARINA PARK <span class="f-brand-ko">마리나파크</span></div>
       <p>{ADDRESS_FULL}</p>
-      <p>Tel: <a href="tel:{TEL_RAW}">{TEL}</a> <span class="tel-label">{TEL_LABEL}</span></p>
-      <p>Cafe: <a href="tel:{CAFE_TEL_RAW}">{CAFE_TEL}</a> <span class="tel-label">마리나파크 카페</span></p>
+      <p>연회 예약: <a href="tel:{TEL_RAW}">{TEL}</a> <span class="tel-label">플로팅아일랜드/마리나파크</span></p>
+      <p>카페 예약: <a href="tel:{CAFE_TEL_RAW}">{CAFE_TEL}</a> <span class="tel-label">마리나파크 카페</span></p>
       <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
       <p class="f-hours">마리나 카페 {CAFE_HOURS} · 행사 문의 평일 10:00 – 18:00</p>
     </div>
@@ -972,7 +972,7 @@ cafe = f"""
         ("화요 (25°, 375ml)","Hwayo","35.0"),
     ])}
     </div>
-    <p class="center note">메뉴와 가격은 사정에 따라 변경될 수 있습니다. 단체 예약 및 카페 가든 파티 문의: <a href="tel:{CAFE_TEL_RAW}">{CAFE_TEL}</a> (카페) · <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">Instagram @marinapark.cafe</a> · <a href="https://marinapark.cafe" target="_blank" rel="noopener">카페 홈페이지 marinapark.cafe</a></p>
+    <p class="center note">메뉴와 가격은 사정에 따라 변경될 수 있습니다. 카페 예약 <a href="tel:{CAFE_TEL_RAW}">{CAFE_TEL}</a> · 연회 예약 <a href="tel:{TEL_RAW}">{TEL}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">Instagram @marinapark.cafe</a> · <a href="https://marinapark.cafe" target="_blank" rel="noopener">카페 홈페이지 marinapark.cafe</a></p>
   </div>
 </section>
 {cafe_faq}
@@ -992,7 +992,7 @@ contact = f"""
       <div class="contact-card">
         <h3>MARINA PARK · 마리나파크</h3>
         <p>{ADDRESS_FULL}</p>
-        <p>Tel: <a href="tel:{TEL_RAW}">{TEL}</a> &nbsp;(<span lang="en">{TEL_INTL}</span>) — {TEL_LABEL}<br>Cafe: <a href="tel:{CAFE_TEL_RAW}">{CAFE_TEL}</a> &nbsp;(<span lang="en">{CAFE_TEL_INTL}</span>) — 마리나파크 카페</p>
+        <p>연회 예약: <a href="tel:{TEL_RAW}">{TEL}</a> &nbsp;(<span lang="en">{TEL_INTL}</span>) — 플로팅아일랜드/마리나파크<br>카페 예약: <a href="tel:{CAFE_TEL_RAW}">{CAFE_TEL}</a> &nbsp;(<span lang="en">{CAFE_TEL_INTL}</span>) — 마리나파크 카페</p>
         <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
         <p>행사 문의 평일 10:00 – 18:00 · 마리나 카페 {CAFE_HOURS}</p>
         <p class="social-row">Instagram: <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">카페 @marinapark.cafe</a> · <a href="{INSTAGRAM['event'][0]}" target="_blank" rel="noopener">이벤트 @marinaparkevent</a> · <a href="{INSTAGRAM['wedding'][0]}" target="_blank" rel="noopener">웨딩 @marinaparkwedding</a> · <a href="{FACEBOOK}" target="_blank" rel="noopener">Facebook</a></p>
@@ -1026,7 +1026,8 @@ contact = f"""
    ("지하철", "9호선 신반포역 · 3·7·9호선 고속터미널역 → 반포한강공원 서래나루 방면"),
    ("자가용", "반포한강공원 주차장 약 200대 · 행사 참석자 3시간 무료"),
    ("단체 버스", "반포한강공원 주차장 하차 (사전 안내)"),
-   ("전화", f"연회·행사 {TEL} ({TEL_INTL}) · 카페 {CAFE_TEL} ({CAFE_TEL_INTL})"),
+   ("연회 예약", f"{TEL} ({TEL_INTL}) · 플로팅아일랜드/마리나파크"),
+   ("카페 예약", f"{CAFE_TEL} ({CAFE_TEL_INTL}) · 마리나파크 카페"),
    ("이메일", EMAIL)])}
 <section class="map-section">
   <iframe title="마리나파크 위치 지도 — 서울 서초구 반포동 115-1" src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8+%EC%84%9C%EC%B4%88%EA%B5%AC+%EB%B0%98%ED%8F%AC%EB%8F%99+115-1&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1089,7 +1090,7 @@ LLMS = f"""# 마리나파크 (Marina Park) — 반포 한강 연회장
 
 > 서울 서초구 반포동 115-1, 반포한강공원 서래나루에 있는 연회·웨딩·MICE 베뉴.
 > 송년회·연말 모임, 소규모 예식·가든웨딩, 돌잔치·가족 연회, 기업연회·런칭쇼·컨퍼런스 전문.
-> 연회·행사 전화 {TEL} ({TEL_INTL}) · 카페 전화 {CAFE_TEL} ({CAFE_TEL_INTL}) · 이메일 {EMAIL} · 영어 상담 가능.
+> 연회 예약 전화 {TEL} ({TEL_INTL}, 플로팅아일랜드/마리나파크) · 카페 예약 전화 {CAFE_TEL} ({CAFE_TEL_INTL}) · 이메일 {EMAIL} · 영어 상담 가능.
 
 ## 핵심 사실
 - 위치: 서울 서초구 반포동 115-1 서래나루 (반포한강공원 내, 한강 바로 앞). 9호선 신반포역·고속터미널역 인근.
