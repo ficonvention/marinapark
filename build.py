@@ -37,7 +37,7 @@ INSTAGRAM = {
     "event":   ("https://www.instagram.com/marinaparkevent", "마리나파크 이벤트", "Event"),
     "wedding": ("https://www.instagram.com/marinaparkwedding", "마리나파크 웨딩", "Wedding"),
 }
-FACEBOOK = "https://www.facebook.com/profile.php?id=61595356262191"
+FACEBOOK = "https://www.facebook.com/marinaparkseoul"
 TODAY = datetime.date.today().isoformat()
 
 NAV = [
