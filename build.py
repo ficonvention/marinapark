@@ -292,13 +292,19 @@ def family_links(current="marinapark"):
             parts.append(f'<a href="{url}" target="_blank" rel="noopener">{name}</a>')
     return '<div class="wrap family-sites"><span class="fs-label">Family Sites</span>' + " ".join(parts) + "</div>"
 
+IG_SVG = '<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>'
+FB_SVG = '<svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>'
+# 푸터 인스타그램: 한 줄에 하나씩 — 1 카페 / 2 웨딩 / 3 연회·이벤트
+INSTA_ROWS = [("cafe", "카페"), ("wedding", "웨딩"), ("event", "연회 · 이벤트")]
+
 def insta_links(cls="f-social"):
     out = []
-    for key, (url, ko, en) in INSTAGRAM.items():
-        out.append(f'<a href="{url}" target="_blank" rel="noopener" aria-label="인스타그램 {ko}" title="{ko} @{url.rsplit("/",1)[1]}">'
-                   f'<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>'
-                   f'<span class="s-label">{en}</span></a>')
-    out.append(f'<a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg><span class="s-label">Facebook</span></a>')
+    for key, label in INSTA_ROWS:
+        url, ko, en = INSTAGRAM[key]
+        handle = "@" + url.rsplit("/", 1)[1]
+        out.append(f'<a href="{url}" target="_blank" rel="noopener" aria-label="인스타그램 {ko}">{IG_SVG}'
+                   f'<span class="s-label"><b>{label}</b> <span class="s-handle">{handle}</span></span></a>')
+    out.append(f'<a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="Facebook">{FB_SVG}<span class="s-label"><b>Facebook</b> <span class="s-handle">플로팅아일랜드</span></span></a>')
     return f'<div class="{cls}">' + "".join(out) + '</div>'
 
 def page(current, title, body, extra_ld=None):
@@ -343,7 +349,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=7">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -379,7 +385,7 @@ def page(current, title, body, extra_ld=None):
       <a href="contact.html">Contact</a>
     </div>
     <div class="f-col">
-      <p class="f-social-title">Instagram · Cafe · Event · Wedding</p>
+      <p class="f-social-title">Instagram</p>
       {insta_links()}
     </div>
   </div>

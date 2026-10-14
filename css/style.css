@@ -262,3 +262,10 @@ p{margin:0 0 1em}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .hero.hero-low .hero-sub{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:.6rem}
 @media (max-width:720px){.hero.hero-low{background-position:center 25%;min-height:92vh}.hero.hero-low .hero-sub{font-size:1.5rem}.hero.hero-low .lead{font-size:.9rem}}
+/* footer social: one account per line */
+.f-social{flex-direction:column;align-items:flex-start;gap:.65rem}
+.f-social a{font-size:.9rem;letter-spacing:.02em;color:#e6e9ee}
+.f-social svg{width:20px;height:20px;flex:none}
+.f-social .s-label b{font-weight:600;color:#fff;margin-right:.35rem}
+.f-social .s-handle{opacity:.7;font-size:.82rem}
+.f-social a:hover .s-handle{opacity:1}
