@@ -37,7 +37,7 @@ INSTAGRAM = {
     "event":   ("https://www.instagram.com/marinaparkevent", "마리나파크 이벤트", "Event"),
     "wedding": ("https://www.instagram.com/marinaparkwedding", "마리나파크 웨딩", "Wedding"),
 }
-FACEBOOK = "https://www.facebook.com/Floatingisland1"
+FACEBOOK = "https://www.facebook.com/profile.php?id=61595356262191"
 TODAY = datetime.date.today().isoformat()
 
 NAV = [
@@ -308,7 +308,7 @@ def insta_links(cls="f-social"):
         handle = "@" + url.rsplit("/", 1)[1]
         out.append(f'<a href="{url}" target="_blank" rel="noopener" aria-label="인스타그램 {ko}">{IG_SVG}'
                    f'<span class="s-label"><b>{label}</b> <span class="s-handle">{handle}</span></span></a>')
-    out.append(f'<a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="Facebook">{FB_SVG}<span class="s-label"><b>Facebook</b> <span class="s-handle">플로팅아일랜드</span></span></a>')
+    out.append(f'<a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="Facebook">{FB_SVG}<span class="s-label"><b>Facebook</b> <span class="s-handle">마리나파크 Marina Park</span></span></a>')
     return f'<div class="{cls}">' + "".join(out) + '</div>'
 
 def page(current, title, body, extra_ld=None):
