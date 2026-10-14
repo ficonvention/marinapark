@@ -637,7 +637,7 @@ biz_faq, biz_faq_ld = faq("송년회 · 기업행사 FAQ", [
     ("현수막·포토월·기업 로고 노출이 가능한가요?", "홀 내부 현수막과 포토월 설치가 가능하고, 외부 도교·외벽 현수막은 별도 협의로 설치할 수 있습니다. 시안은 행사 1주 전까지 전달해 주시면 됩니다."),
 ])
 business = f"""
-{hero("mp-b28.jpg", "Marina Park", "Business Party / MICE Event", "송년회 · 연말 모임 · 기업연회 · 컨퍼런스 — 100~300명")}
+{hero("mp-b28.jpg", "Marina Park", "Business Party / MICE Event", "송년회 · 연말 모임 · 기업연회 · 컨퍼런스")}
 <section class="section">
   <div class="wrap">
     <p class="center sub">송년회·연말 모임, 기업연회·갈라디너, 컨퍼런스·세미나·시상식 — 한강이 보이는 2층 컨벤션홀에서 100명부터 300명까지 진행하실 수 있습니다. 식사 후에는 3층 루프탑 가든에서 애프터파티를 이어갑니다.</p>
