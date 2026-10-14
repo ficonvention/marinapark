@@ -29,7 +29,7 @@ EMAIL = "ficonvention@gmail.com"
 GEO_LAT, GEO_LNG = 37.5093, 126.9960
 CAFE_HOURS = "매일 10:00 – 22:00"
 INSTAGRAM = {
-    "cafe":    ("https://www.instagram.com/marinapark_banpo", "마리나파크 카페", "Cafe"),
+    "cafe":    ("https://www.instagram.com/marinapark_cafe", "마리나파크 카페", "Cafe"),
     "event":   ("https://www.instagram.com/marinaparkevent", "마리나파크 이벤트", "Event"),
     "wedding": ("https://www.instagram.com/marinaparkwedding", "마리나파크 웨딩", "Wedding"),
 }
@@ -961,7 +961,7 @@ cafe = f"""
         ("화요 (25°, 375ml)","Hwayo","35.0"),
     ])}
     </div>
-    <p class="center note">메뉴와 가격은 사정에 따라 변경될 수 있습니다. 단체 예약 및 카페 가든 파티 문의: <a href="tel:{TEL_RAW}">{TEL}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">Instagram @marinapark_banpo</a> · <a href="https://marinapark.cafe" target="_blank" rel="noopener">카페 홈페이지 marinapark.cafe</a></p>
+    <p class="center note">메뉴와 가격은 사정에 따라 변경될 수 있습니다. 단체 예약 및 카페 가든 파티 문의: <a href="tel:{TEL_RAW}">{TEL}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">Instagram @marinapark_cafe</a> · <a href="https://marinapark.cafe" target="_blank" rel="noopener">카페 홈페이지 marinapark.cafe</a></p>
   </div>
 </section>
 {cafe_faq}
@@ -984,7 +984,7 @@ contact = f"""
         <p>Tel: <a href="tel:{TEL_RAW}">{TEL}</a> &nbsp;(<span lang="en">{TEL_INTL}</span>)</p>
         <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
         <p>행사 문의 평일 10:00 – 18:00 · 마리나 카페 {CAFE_HOURS}</p>
-        <p class="social-row">Instagram: <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">카페 @marinapark_banpo</a> · <a href="{INSTAGRAM['event'][0]}" target="_blank" rel="noopener">이벤트 @marinaparkevent</a> · <a href="{INSTAGRAM['wedding'][0]}" target="_blank" rel="noopener">웨딩 @marinaparkwedding</a> · <a href="{FACEBOOK}" target="_blank" rel="noopener">Facebook</a></p>
+        <p class="social-row">Instagram: <a href="{INSTAGRAM['cafe'][0]}" target="_blank" rel="noopener">카페 @marinapark_cafe</a> · <a href="{INSTAGRAM['event'][0]}" target="_blank" rel="noopener">이벤트 @marinaparkevent</a> · <a href="{INSTAGRAM['wedding'][0]}" target="_blank" rel="noopener">웨딩 @marinaparkwedding</a> · <a href="{FACEBOOK}" target="_blank" rel="noopener">Facebook</a></p>
       </div>
     </div>
     <form class="contact-form" id="contactForm" action="mailto:{EMAIL}" method="post" enctype="text/plain">
