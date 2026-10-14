@@ -270,3 +270,32 @@ p{margin:0 0 1em}
 .f-social .s-handle{opacity:.7;font-size:.82rem}
 .f-social a:hover .s-handle{opacity:1}
 .tel-label{font-size:.78rem;opacity:.65;margin-left:.3rem}
+/* ---- 2026-10-15 home restructure: 시설 소개 · 공간 소개 · 가든파티 · 야외웨딩 ---- */
+.intro-slides .slides{display:grid;gap:1.4rem;margin-top:1rem}
+.intro-slides .slides figure{margin:0;overflow:hidden;border-radius:4px;box-shadow:0 10px 30px rgba(20,26,34,.08)}
+.intro-slides .slides img{display:block;width:100%;height:auto}
+.intro-slides .slides.cols-2{grid-template-columns:1fr 1fr;margin-top:1.4rem}
+.spaces .space-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-bottom:2.2rem}
+.spaces .space-grid figure{margin:0}
+.spaces .space-grid img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px}
+.spaces figcaption{padding:.9rem .2rem 0}
+.spaces figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--ink);letter-spacing:.04em}
+.spaces figcaption span{display:block;color:var(--ink-soft);font-size:.9rem;margin-top:.25rem}
+.feature-band{position:relative;min-height:62vh;display:flex;align-items:center;background-size:cover;background-position:center;color:#fff}
+.feature-band::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(20,26,34,.62),rgba(20,26,34,.15))}
+.feature-band .feature-text{position:relative;max-width:560px}
+.feature-band .eyebrow{color:#fff;opacity:.85}
+.feature-band h2{color:#fff;font-weight:400}
+.feature-band p{color:#fff;opacity:.92;margin-bottom:1.6rem}
+.outdoor-wedding .split-img.poster img{aspect-ratio:1/1;object-fit:cover;border-radius:4px;box-shadow:0 14px 40px rgba(20,26,34,.14)}
+.btn-outline-dark{border:1px solid var(--ink);color:var(--ink);background:transparent}
+@media (max-width:760px){
+  .intro-slides .slides.cols-2{grid-template-columns:1fr}
+  .spaces .space-grid{grid-template-columns:1fr}
+  .feature-band{min-height:52vh;background-position:60% center}
+}
+/* page hero: smaller titles so the photo shows through */
+.page-hero h1{font-size:clamp(1.7rem,3.6vw,2.6rem);letter-spacing:.06em}
+.page-hero .lead{font-size:1rem}
+.page-hero::before{background:linear-gradient(to top,rgba(20,26,34,.5),rgba(20,26,34,0))}
+.page-hero .wrap{padding-bottom:2.2rem}

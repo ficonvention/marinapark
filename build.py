@@ -96,8 +96,6 @@ ALT = {
     "mp-c58.jpg": "마리나파크 가든 텐트 아래 가족 연회 테이블",
     "mp-c59.jpg": "마리나파크 웨딩 데이 입구 플라워 세팅",
     "mp-c60.jpg": "마리나파크 홀에서 보는 한강 노을",
-    "mp-e05.jpg": "마리나파크 갈라 디너 테이블 세팅 — 화이트 린넨과 센터피스",
-    "mp-e06.jpg": "마리나파크 2층 홀 기업 갈라 디너 전경",
     # old wix images kept
     "2649b2_0eba81bbe25c4fb393a391de7f8e4517": "마리나파크 1층 마리나 카페 외관",
     "2649b2_256b3a1192ce4999b2c9cdaa52cba08f": "마리나파크 1층 카페와 레드 어닝",
@@ -353,7 +351,7 @@ def page(current, title, body, extra_ld=None):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 {chr(10).join(lds)}
 </head>
 <body class="page-{current.replace('.html','')}{hero_cls}">
@@ -475,39 +473,58 @@ home = f"""
   </div>
 </section>
 
-<section class="section services">
+<section class="section intro-slides" id="facilities">
   <div class="wrap">
-    <p class="eyebrow center">Services</p>
-    <h2 class="center">Design your Wedding and Party</h2>
-    <div class="service-grid">
-      <a class="service" href="business-party.html">
-        <img src="{img('mp-e06.jpg')}" loading="lazy" alt="{alt_of('mp-e06.jpg')}">
-        <h3>송년회 · 기업연회</h3><p>연말 모임 · 갈라디너 · 100~300명</p>
-      </a>
-      <a class="service" href="business-party.html">
-        <img src="{img('mp-b28.jpg')}" loading="lazy" alt="{alt_of('mp-b28.jpg')}">
-        <h3>MICE Events</h3><p>컨퍼런스 · 세미나 · 단체행사</p>
-      </a>
-      <a class="service" href="first-party.html">
-        <img src="{img('mp-c53.jpg')}" loading="lazy" alt="{alt_of('mp-c53.jpg')}">
-        <h3>돌잔치 · 가족연회</h3><p>50명 룸 가족 돌잔치부터 200명까지</p>
-      </a>
-      <a class="service" href="wedding.html">
-        <img src="{img('mp-c01.jpg')}" loading="lazy" alt="{alt_of('mp-c01.jpg')}">
-        <h3>소규모 예식 · 가든웨딩</h3><p>50명대 가족 예식 · 한강 가든</p>
-      </a>
+    <p class="eyebrow center">Facilities</p>
+    <h2 class="center">시설 소개</h2>
+    <p class="center sub">반포 한강 서래나루 — 1F Marina Cafe · 2F Convention · 3F Rooftop Garden</p>
+    <div class="slides">
+      <figure><img src="{img('intro-01-about.jpg')}" alt="Marina Park — About us: 1F Marina Cafe, 2F Convention, 3F Rooftop Garden"></figure>
+      <figure><img src="{img('intro-02-exterior.jpg')}" loading="lazy" alt="Marina Park Exterior — 건물 입면도와 외관"></figure>
+      <figure><img src="{img('intro-03-vision.jpg')}" loading="lazy" alt="Marina Park Vision &amp; Mission — 루프탑 가든과 2층 홀"></figure>
+    </div>
+    <div class="slides cols-2">
+      <figure><img src="{img('intro-04-launching.jpg')}" loading="lazy" alt="Launching Show — 2층 컨벤션홀 런칭쇼"></figure>
+      <figure><img src="{img('intro-05-mice.jpg')}" loading="lazy" alt="MICE Events — 2층 컨벤션홀 행사"></figure>
+      <figure><img src="{img('intro-06-gala.jpg')}" loading="lazy" alt="Gala Dinner — 2층 컨벤션홀 갈라디너 세팅"></figure>
+      <figure><img src="{img('intro-07-party.jpg')}" loading="lazy" alt="Party — 한강 뷰 파티와 루프탑 불꽃"></figure>
     </div>
   </div>
 </section>
 
-<section class="section intro-split">
+<section class="section alt spaces" id="spaces">
+  <div class="wrap">
+    <p class="eyebrow center">Spaces</p>
+    <h2 class="center">공간 소개</h2>
+    <div class="space-grid">
+      <figure><img src="{img('space-01-hall.jpg')}" loading="lazy" alt="마리나파크 2층 컨벤션홀 — 골드 도어와 샹들리에, 한강 통창"><figcaption><b>2F Convention Hall</b><span>100~300명 · 샹들리에 · 사면 한강 통창 · 무대·LED·음향</span></figcaption></figure>
+      <figure><img src="{img('space-02-foyer.jpg')}" loading="lazy" alt="마리나파크 2층 로비 — 네이비 카펫과 골드 도어, 한강이 보이는 대기 공간"><figcaption><b>Foyer &amp; Lounge</b><span>등록 데스크 · 포토존 · 웰컴 리셉션 · 신부대기실</span></figcaption></figure>
+      <figure><img src="{img('space-03-exterior.jpg')}" loading="lazy" alt="마리나파크 외관 — 반포 한강 서래나루 건물"><figcaption><b>Seoraenaru Building</b><span>반포한강공원 서래나루 · 1F 카페 · 2F 홀 · 3F 가든</span></figcaption></figure>
+    </div>
+    <p class="center"><a class="btn" href="about.html">About Marina Park</a></p>
+  </div>
+</section>
+
+<section class="section intro-slides garden-party" id="garden-party">
+  <div class="wrap">
+    <p class="eyebrow center">3F Garden</p>
+    <h2 class="center">가든파티</h2>
+    <p class="center sub">한강 노을을 배경으로 한 3층 루프탑 가든 스탠딩 파티. 웰컴 칵테일 · 네트워킹 리셉션 · 애프터파티 — 한강 다리 야경과 스트링 라이트가 공간을 완성합니다.</p>
+    <div class="slides">
+      <figure><img src="{img('garden-party.jpg')}" loading="lazy" alt="3F Garden Standing Party — 한강 노을 아래 루프탑 가든 스탠딩 파티"></figure>
+    </div>
+    <p class="center" style="margin-top:1.6rem"><a class="btn" href="business-party.html">Garden Party</a></p>
+  </div>
+</section>
+
+<section class="section outdoor-wedding" id="outdoor-wedding">
   <div class="wrap split">
-    <div class="split-img"><img src="{img('mp-b10.jpg')}" loading="lazy" alt="{alt_of('mp-b10.jpg')}"></div>
+    <div class="split-img poster"><img src="{img('outdoor-wedding.jpg')}" loading="lazy" alt="Marina Park Wedding — Memories that last a lifetime. 한강 야외 웨딩 리셉션"></div>
     <div class="split-text">
-      <p class="eyebrow">Han River · Seoraenaru</p>
-      <h2>한강과 서리풀 공원이<br>어우러진 공간</h2>
-      <p>마리나파크는 서울 서초구 반포 서래나루(반포한강공원)에 위치한 복합 연회 공간입니다. 1층 마리나 카페, 2층 100~300명 규모의 컨벤션홀, 3층 화이트 가제보 루프탑 가든까지 — 한강의 정취를 그대로 담은 세 개의 공간에서 송년회·기업행사부터 소규모 예식, 돌잔치까지 모든 순간을 준비합니다.</p>
-      <a class="btn" href="about.html">About Marina Park</a>
+      <p class="eyebrow">Marina Park Wedding</p>
+      <h2>야외웨딩</h2>
+      <p>하늘과 한강이 배경이 되는 3층 루프탑 가든 웨딩. 가든 세리머니 · 실내 홀 예식 · 프라이빗 리셉션 · 스몰웨딩 — 주말 12:00 · 18:00 두 타임, 하루 두 커플만 진행합니다. 우천 시에는 2층 컨벤션홀로 이동해 실내 예식으로 진행합니다.</p>
+      <a class="btn" href="garden-wedding.html">Garden Wedding</a> <a class="btn btn-outline-dark" href="wedding.html">Wedding</a>
       <p class="contact-line"><a href="tel:{TEL_RAW}">Tel {TEL}</a></p>
     </div>
   </div>
@@ -527,18 +544,6 @@ home = f"""
    ("카페 영업", CAFE_HOURS),
    ("문의", f"{TEL} · {EMAIL} · 영어 상담 가능")],
   en="Marina Park is a riverside event venue at Seoraenaru, Banpo Han River Park, Seoul: a ground-floor cafe, a 2nd-floor convention hall for 100–300 guests, and a 3rd-floor rooftop garden with a white marble gazebo. Year-end parties, corporate galas, intimate weddings, garden weddings, first-birthday celebrations and product launches. English inquiries welcome: +82-2-537-2440.")}
-
-<section class="section gallery-teaser">
-  <div class="wrap">
-    <p class="eyebrow center">Event Gallery</p>
-    <h2 class="center">Unforgettable Memories</h2>
-    {gallery([
-        ("mp-b25.jpg", 3, 2), ("mp-c03.jpg", 3, 2), ("mp-b31.jpg", 3, 2),
-        ("mp-c34.jpg", 3, 2), ("mp-b30.jpg", 3, 2), ("mp-c60.jpg", 3, 2),
-    ], "gallery cols-3 even")}
-    <p class="center"><a class="btn" href="business-party.html">Discover Party</a></p>
-  </div>
-</section>
 
 <section class="section cta-band">
   <div class="wrap center">
@@ -636,12 +641,11 @@ business = f"""
   <div class="wrap">
     <p class="center sub">송년회·연말 모임, 기업연회·갈라디너, 컨퍼런스·세미나·시상식 — 한강이 보이는 2층 컨벤션홀에서 100명부터 300명까지 진행하실 수 있습니다. 식사 후에는 3층 루프탑 가든에서 애프터파티를 이어갑니다.</p>
     {gallery([
-        ("mp-e06.jpg", 4, 3), ("mp-e05.jpg", 3, 4), ("mp-b26.jpg", 3, 2), ("mp-b28.jpg", 3, 2),
+        ("mp-b26.jpg", 3, 2), ("mp-b28.jpg", 3, 2),
         ("mp-b18.jpg", 3, 2), ("mp-b25.jpg", 2, 1), ("mp-b31.jpg", 3, 2), ("mp-b30.jpg", 3, 2),
         ("mp-b17.jpg", 3, 2), ("mp-b32.jpg", 2, 1), ("mp-b10.jpg", 3, 2), ("mp-b09.jpg", 3, 2),
         ("2649b2_2550e0e1deda4df8a29c7eb8a3ae9d1e~mv2.png", 7, 4),
         ("2649b2_ffa6948050474d00a60c19183833a48e~mv2.jpg", 2, 1),
-        ("2649b2_2e13c691e36f4f9f975aa6e7f7489290~mv2_d_6768_3936_s_4_2.jpg", 5, 3),
         ("2649b2_1f4e534b009a455795154239a1f1f044~mv2.png", 5, 3),
         ("2649b2_c61315fdb1d8465daf24e08a05ebad93~mv2.jpeg", 3, 2),
         ("2649b2_349a109dd0544dc68648d9f7df86de79~mv2.jpg", 4, 3),
