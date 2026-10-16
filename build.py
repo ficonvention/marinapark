@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Marina Park static site generator.
-Run: python3 build.py  -> writes *.html, robots.txt, sitemap.xml, llms.txt into this folder.
-2026-10-14: photo refresh, phone 02-537-2440, Instagram x3, SEO (per-page meta, alt, canonical, OG,
-robots/sitemap) and GEO (JSON-LD EventVenue/LocalBusiness/FAQPage, facts blocks, llms.txt).
-"""
 import os, html, json, re, datetime
 
 OUT = os.path.dirname(os.path.abspath(__file__))
@@ -1312,6 +1306,7 @@ def to_english(fname, html_ko):
         pos = m.end()
     out.append(html_ko[pos:])
     h = "".join(out)
+    h = re.sub(r'<meta property="og:image:alt" content="([^"]*)">', lambda a: f'<meta property="og:image:alt" content="{html.escape(_tr(html.unescape(a.group(1))), quote=True)}">', h, count=1)
     en_name = fname.replace(".html", "-en.html")
     url_ko = BASE_URL + "/" + ("" if fname == "index.html" else fname)
     url_en = BASE_URL + "/" + en_name
@@ -1338,7 +1333,7 @@ def to_english(fname, html_ko):
         if href.startswith("cafe.html#"):
             return f'href="cafe-en.html#{href.split("#",1)[1]}"'
         return m.group(0)
-    h = re.sub(r'href="([a-z\-]+\.html(?:#[^"]*)?)"', _link, h)
+    h = re.sub(r'href="([a-z\-]+\.html(?:#[^"]*)?)"(?! lang="ko")', _link, h)  # keep the 한국어 switch pointing at the Korean page
     h = h.replace('<html lang="en">', '<html lang="en">', 1)
     return en_name, h
 
