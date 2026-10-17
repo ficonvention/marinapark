@@ -31,6 +31,7 @@ INSTAGRAM = {
     "event":   ("https://www.instagram.com/marinaparkevent", "마리나파크 이벤트", "Event"),
     "wedding": ("https://www.instagram.com/marinaparkwedding", "마리나파크 웨딩", "Wedding"),
     "floating": ("https://www.instagram.com/floatingisland_official", "세빛섬 플로팅아일랜드", "Floating Island"),
+    "vista":   ("https://www.instagram.com/vista_pub", "비스타", "Vista"),
     "artm":    ("https://www.instagram.com/artmstudiosounds", "아트엠 스튜디오사운즈", "ArtM Studio Sounds"),
 }
 FACEBOOK = "https://www.facebook.com/marinaparkseoul"
@@ -302,7 +303,7 @@ IG_SVG = '<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 
 FB_SVG = '<svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>'
 # 푸터 인스타그램: 한 줄에 하나씩 — 1 카페 / 2 웨딩 / 3 연회·이벤트
 INSTA_ROWS = [("cafe", "카페"), ("wedding", "웨딩"), ("event", "연회 · 이벤트")]
-INSTA_FAMILY_ROWS = [("floating", "플로팅아일랜드"), ("artm", "아트엠 스튜디오사운즈")]
+INSTA_FAMILY_ROWS = [("floating", "플로팅아일랜드"), ("vista", "비스타"), ("artm", "아트엠 스튜디오사운즈")]
 
 def insta_links(cls="f-social"):
     out = []
