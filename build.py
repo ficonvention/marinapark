@@ -30,6 +30,8 @@ INSTAGRAM = {
     "cafe":    ("https://www.instagram.com/marinapark.cafe", "마리나파크 카페", "Cafe"),
     "event":   ("https://www.instagram.com/marinaparkevent", "마리나파크 이벤트", "Event"),
     "wedding": ("https://www.instagram.com/marinaparkwedding", "마리나파크 웨딩", "Wedding"),
+    "floating": ("https://www.instagram.com/floatingisland_official", "세빛섬 플로팅아일랜드", "Floating Island"),
+    "artm":    ("https://www.instagram.com/artmstudiosounds", "아트엠 스튜디오사운즈", "ArtM Studio Sounds"),
 }
 FACEBOOK = "https://www.facebook.com/marinaparkseoul"
 TODAY = datetime.date.today().isoformat()
@@ -151,7 +153,7 @@ def alt_of(path):
     return ALT.get(key, "마리나파크 — 반포 한강 연회장")
 
 # ---------- JSON-LD ----------
-SAME_AS = [v[0] for v in INSTAGRAM.values()] + [FACEBOOK]
+SAME_AS = [INSTAGRAM[k][0] for k in ("cafe", "event", "wedding")] + [FACEBOOK]  # 마리나파크 자체 계정만 (패밀리 계정 제외)
 VENUE_LD = {
     "@context": "https://schema.org",
     "@type": ["EventVenue", "LocalBusiness"],
@@ -300,6 +302,7 @@ IG_SVG = '<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 
 FB_SVG = '<svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>'
 # 푸터 인스타그램: 한 줄에 하나씩 — 1 카페 / 2 웨딩 / 3 연회·이벤트
 INSTA_ROWS = [("cafe", "카페"), ("wedding", "웨딩"), ("event", "연회 · 이벤트")]
+INSTA_FAMILY_ROWS = [("floating", "플로팅아일랜드"), ("artm", "아트엠 스튜디오사운즈")]
 
 def insta_links(cls="f-social"):
     out = []
@@ -309,6 +312,12 @@ def insta_links(cls="f-social"):
         out.append(f'<a href="{url}" target="_blank" rel="noopener" aria-label="인스타그램 {ko}">{IG_SVG}'
                    f'<span class="s-label"><b>{label}</b> <span class="s-handle">{handle}</span></span></a>')
     out.append(f'<a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="Facebook">{FB_SVG}<span class="s-label"><b>Facebook</b> <span class="s-handle">마리나파크 Marina Park</span></span></a>')
+    # Facebook 밑: 패밀리 계정 (같은 "굵은 이름 + 계정" 형식)
+    for key, label in INSTA_FAMILY_ROWS:
+        url, ko, en = INSTAGRAM[key]
+        handle = "@" + url.rsplit("/", 1)[1]
+        out.append(f'<a href="{url}" target="_blank" rel="noopener" aria-label="인스타그램 {ko}">{IG_SVG}'
+                   f'<span class="s-label"><b>{label}</b> <span class="s-handle">{handle}</span></span></a>')
     return f'<div class="{cls}">' + "".join(out) + '</div>'
 
 def page(current, title, body, extra_ld=None):
