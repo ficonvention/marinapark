@@ -342,3 +342,10 @@ p{margin:0 0 1em}
 .av-list img{display:block;width:100%;border:1px solid var(--line);border-radius:4px}
 .av-list figure:last-child{grid-column:1 / -1;max-width:60%;margin:0 auto}
 @media (max-width:760px){.plan-grid,.av-list{grid-template-columns:1fr}.av-list figure:last-child{max-width:100%}}
+
+/* Instagram feed (4:5 posts as uploaded) — 2026-11-01 */
+.ig-feed .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:960px;margin:2rem auto 0}
+.ig-feed .ig-tile{display:block;aspect-ratio:4/5;overflow:hidden;background:#eee}
+.ig-feed .ig-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.ig-feed .ig-tile:hover img{transform:scale(1.03)}
+@media (max-width:640px){.ig-feed .ig-grid{gap:3px}}

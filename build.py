@@ -428,6 +428,37 @@ def gallery(items, cls="gallery"):
     out.append('</div>')
     return "\n".join(out)
 
+
+# ---------- Instagram feed (게시물 이미지를 그대로, 4:5) ----------
+IG_WED = [f"ig-wed-{i:02d}.jpg" for i in range(1, 13)]
+IG_EVT_IBC = [f"ig-evt-ibc-{i:02d}.jpg" for i in range(1, 10)]
+IG_EVT_YEAREND = [f"ig-evt-yearend-{i:02d}.jpg" for i in range(1, 10)]
+IG_ALT = {
+    "ig-wed": "마리나파크 웨딩 인스타그램 게시물",
+    "ig-evt-ibc": "마리나파크 국제행사 갈라디너 인스타그램 게시물",
+    "ig-evt-yearend": "마리나파크 송년회 인스타그램 게시물",
+}
+def ig_feed(key, files, heading, lead, sec_id, alt_bg=True):
+    url, ko, en = INSTAGRAM[key]
+    handle = "@" + url.rsplit("/", 1)[1]
+    tiles = []
+    for f in files:
+        a = next(v for k, v in IG_ALT.items() if f.startswith(k))
+        tiles.append(f'<a class="ig-tile" href="images/{f}" data-lightbox><img src="images/{f}" loading="lazy" width="1080" height="1350" alt="{html.escape(a)}"></a>')
+    cls = "section alt ig-feed" if alt_bg else "section ig-feed"
+    return f"""<section class="{cls}" id="{sec_id}">
+  <div class="wrap">
+    <p class="eyebrow center">Instagram {handle}</p>
+    <h2 class="center">{heading}</h2>
+    <p class="center sub">{lead}</p>
+    <div class="ig-grid">
+      {"".join(tiles)}
+    </div>
+    <p class="center" style="margin-top:1.8rem"><a class="btn btn-outline-dark" href="{url}" target="_blank" rel="noopener">{handle} 인스타그램 보기</a></p>
+  </div>
+</section>
+"""
+
 def hero(image, eyebrow, h1, lead=None, tall=False):
     src = img(image) if image.startswith("mp-") else wix(image)
     lead_html = f'<p class="lead">{lead}</p>' if lead else ""
@@ -749,6 +780,7 @@ business = f"""
    ("언어", "영어 상담 및 영문 견적서 제공")])}
 
 {biz_faq}
+{ig_feed("event", IG_EVT_IBC + IG_EVT_YEAREND, "마리나파크 이벤트 인스타그램", "국제행사 갈라디너 · 송년회 — 인스타그램에 올린 마리나파크 기업행사 게시물입니다.", "instagram")}
 <section class="section cta-band"><div class="wrap center"><h2>Turning a Vision into Reality</h2><p>송년회 · 기업행사 문의 {TEL}</p><a class="btn btn-light" href="contact.html">행사 문의</a></div></section>
 """
 
@@ -898,6 +930,7 @@ wedding = f"""
    ("예약", "봄·가을 주말은 6개월 이상 전 권장")],
   en="Intimate weddings from a 50-guest minimum up to 300 (weekend ceremonies at 12:00 and 18:00, two couples a day): an indoor hall with floor-to-ceiling Han River views on the 2nd floor and an outdoor rooftop garden ceremony space with a white marble gazebo on the 3rd floor. Only two couples per day; rain backup indoors; bridal room with river view; chef's course dinner or buffet.")}
 {wed_faq}
+{ig_feed("wedding", IG_WED, "마리나파크 웨딩 인스타그램", "스몰웨딩 · 가든웨딩 · 프라이빗웨딩 — 인스타그램에 올린 마리나파크 웨딩 게시물입니다.", "instagram")}
 <section class="section cta-band"><div class="wrap center"><h2>Your wedding on the Han River</h2><p>소규모 예식 · 웨딩 상담 {TEL}</p><a class="btn btn-light" href="contact.html">웨딩 상담 문의</a></div></section>
 """
 
@@ -1140,6 +1173,7 @@ events = f"""
     </p>
   </div>
 </section>
+{ig_feed("event", IG_EVT_IBC + IG_EVT_YEAREND, "인스타그램 행사 게시물", "국제행사 갈라디너 · 송년회 — @marinaparkevent에 올린 최근 행사 게시물입니다.", "instagram", alt_bg=False)}
 <section class="section cta-band"><div class="wrap center"><h2>Host your event at Marina Park</h2><p>행사 일정과 인원을 알려주시면 맞춤 제안을 드립니다. · {TEL}</p><a class="btn btn-light" href="contact.html">행사 문의</a></div></section>
 """
 
